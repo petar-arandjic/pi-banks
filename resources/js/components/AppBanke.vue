@@ -2,10 +2,13 @@
     <div>
         <div id="nav_bar_place"></div>
         <div id="horizontal_bank_nav_bar">
-            <hb-NB-Crad v-for="bank in banks"
+            <hb-NB-Crad v-for="(bank, index) in banks"
+            :key="index"
             :CurrentBank="bank"
-            :select_bank='select_bank'
             />
+        </div>
+        <div id="transactions_screen">
+
         </div>
     </div>
 </template>
@@ -80,6 +83,25 @@ export default {
         height:         calc(93% - 10px);
 
         color: white;
+    }
+    #transactions_screen{
+        position: absolute;
+
+        top: -webkit-calc(7% + 5px);
+        top:    -moz-calc(7% + 5px);
+        top:         calc(7% + 5px);
+
+        height: -webkit-calc(93% - 10px);
+        height:    -moz-calc(93% - 10px);
+        height:         calc(93% - 10px);
+
+        left: -webkit-calc(10% + 5px);
+        left:    -moz-calc(10% + 5px);
+        left:         calc(10% + 5px);
+
+        width: 70%;
+
+        background: red;
     }
 </style>
 

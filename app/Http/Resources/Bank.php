@@ -17,11 +17,12 @@ class Bank extends JsonResource
         //return parent::toArray($request);
 
         return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'account' => $this->account,
-            'bg_color' => $this->bg_color,
-            'font_color' => $this->font_color
+            'id'            =>      $this->id,
+            'name'          =>      $this->name,
+            'account'       =>      $this->account,
+            'bg_color'      =>      $this->bg_color,
+            'font_color'    =>      $this->font_color,
+            'show'          =>      $this->show
         ];
     }
 }

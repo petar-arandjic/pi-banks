@@ -1709,6 +1709,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'App-Banks',
   data: function data() {
@@ -6253,7 +6256,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "button, input[type=submit], input[type=reset] {\n  background: none;\n  color: inherit;\n  border: none;\n  padding: 0;\n  font: inherit;\n  cursor: pointer;\n  outline: inherit;\n}\n#nav_bar_place {\n  position: absolute;\n  width: 100%;\n  height: 7%;\n  top: 0px;\n  background: lightgray;\n}\n#horizontal_bank_nav_bar {\n  position: absolute;\n  left: 5px;\n  top: calc(7% + 5px);\n  width: calc(10% - 5px);\n  height: calc(93% - 10px);\n  color: white;\n}", ""]);
+exports.push([module.i, "button, input[type=submit], input[type=reset] {\n  background: none;\n  color: inherit;\n  border: none;\n  padding: 0;\n  font: inherit;\n  cursor: pointer;\n  outline: inherit;\n}\n#nav_bar_place {\n  position: absolute;\n  width: 100%;\n  height: 7%;\n  top: 0px;\n  background: lightgray;\n}\n#horizontal_bank_nav_bar {\n  position: absolute;\n  left: 5px;\n  top: calc(7% + 5px);\n  width: calc(10% - 5px);\n  height: calc(93% - 10px);\n  color: white;\n}\n#transactions_screen {\n  position: absolute;\n  top: calc(7% + 5px);\n  height: calc(93% - 10px);\n  left: calc(10% + 5px);\n  width: 70%;\n  background: red;\n}", ""]);
 
 // exports
 
@@ -37790,13 +37793,13 @@ var render = function() {
     _c(
       "div",
       { attrs: { id: "horizontal_bank_nav_bar" } },
-      _vm._l(_vm.banks, function(bank) {
-        return _c("hb-NB-Crad", {
-          attrs: { CurrentBank: bank, select_bank: _vm.select_bank }
-        })
+      _vm._l(_vm.banks, function(bank, index) {
+        return _c("hb-NB-Crad", { key: index, attrs: { CurrentBank: bank } })
       }),
       1
-    )
+    ),
+    _vm._v(" "),
+    _c("div", { attrs: { id: "transactions_screen" } })
   ])
 }
 var staticRenderFns = []

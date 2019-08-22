@@ -19,6 +19,8 @@ class CreateBanksTable extends Migration
             $table->string('name');
             //Bank account
             $table->string('account');
+            //Determinate if bank transaction will be shown of on mail container
+            $table->boolean('show')->default(false);
             //style and colors for bank |table
             $table->bigInteger('style_id');
 

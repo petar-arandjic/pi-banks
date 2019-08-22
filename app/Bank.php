@@ -14,4 +14,7 @@ class Bank extends Model
     public function bankStyle(){
         return $this->hasOne('BankStyle');
     }
+    public function transaction(){
+        $this->hasMany('Transaction');
+    }
 }

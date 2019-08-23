@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\DB;
 
 class BankController extends Controller
 {
-    //
+    //get all banks as json
     public function index(){
 
         $banks =  DB::table('banks')
@@ -25,5 +25,9 @@ class BankController extends Controller
         return BankResource::collection($banks);
         //return Bank::all();
 
+    }
+    //show one bank as json
+    public function show($id){
+        return Bank::findOrFail($id);
     }
 }

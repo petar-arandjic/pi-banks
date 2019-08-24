@@ -25,3 +25,5 @@ Route::get('banks/{bank}', 'BankController@show');
 
 Route::get('transactions', 'TransactionController@index');
 
+Route::get('banks/{bank}/transactions', 'BankTransactionsController@index');
+

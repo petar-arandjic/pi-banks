@@ -1712,6 +1712,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'App-Banks',
   data: function data() {
@@ -1723,9 +1725,21 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    select_bank: function select_bank(id) {
-      this.selected_banks.push(this.banks[id]);
-      console.log(this.selected_banks);
+    get_selected_banks: function get_selected_banks() {
+      for (var index = 0; index < this.banks.length; index++) {
+        if (this.banks[index].show) {
+          this.selected_banks.push(this.banks[index]);
+        }
+      }
+    },
+    //push bank to selected_banks array || this function is run inside Horizontal.Banke.NavCard component
+    add_selected_bank: function add_selected_bank(id) {
+      if (this.selected_banks.length < 4) {
+        this.selected_banks.push(this.banks[id]);
+        return true;
+      } else {
+        alert('You can only have 4 bank windows displayed');
+      }
     }
   },
   //get bank data from server
@@ -1739,6 +1753,8 @@ __webpack_require__.r(__webpack_exports__);
       //console.log(JSON.parse(response));
       //console.log(response.data);
       _this.banks = response.data;
+
+      _this.get_selected_banks();
     });
   }
 });
@@ -1765,26 +1781,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    CurrentBank: Object,
-    select_bank: Function
+    Bank: Object,
+    Index: Number,
+    Add_selected_bank: Function
   },
   data: function data() {
-    return {
-      bank: null
-    };
+    return {};
   },
   methods: {
+    //Add prefix to color code || make color readable by css
     validate_color: function validate_color(color) {
       return "#" + color;
+    },
+    //Run functions that add bank info to screen and change style of bank card
+    select_bank: function select_bank() {
+      //check if we already added this bank to selected_bank array
+      if (!this.Bank.show) {
+        //check if array is full if not adds bank to array and return true
+        var is_array_full = this.Add_selected_bank(this.Index); //if true change style of bank card
+
+        if (is_array_full) {
+          //change bank show property to true
+          this.Bank.show = true;
+        }
+      }
     }
   },
   watch: {
     CurrentQuestion: {
       immediate: true,
       handler: function handler() {
-        this.bank = this.CurrentBank; //console.log(this.bank)
+        this.bank = this.CurrentBank; //console.log(this.bank)mk
       }
     }
   }
@@ -6275,7 +6305,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".card[data-v-1f34b2f5] {\n  position: relative;\n  width: 100%;\n  height: 8%;\n  margin-bottom: 5px;\n}\n.card-button[data-v-1f34b2f5] {\n  box-sizing: border-box;\n  border: 5px solid;\n  border-radius: 2px;\n  font-family: Arial, Helvetica, sans-serif;\n  font-weight: 600;\n  font-size: 1vw;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  transition: opacity 0.2s ease-in-out;\n}\n.card-button[data-v-1f34b2f5]:hover {\n  filter: alpha(opacity=50);\n  opacity: 0.8;\n}\n.card-button-active[data-v-1f34b2f5] {\n  background: white;\n  color: black;\n}", ""]);
+exports.push([module.i, ".card[data-v-1f34b2f5] {\n  position: relative;\n  width: 100%;\n  height: 8%;\n  margin-bottom: 5px;\n}\n.card-button[data-v-1f34b2f5] {\n  box-sizing: border-box;\n  border: 5px solid;\n  border-radius: 2px;\n  font-family: Arial, Helvetica, sans-serif;\n  font-weight: 600;\n  font-size: 1vw;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  transition: opacity 0.2s ease-in-out;\n}\n.card-button[data-v-1f34b2f5]:hover {\n  filter: alpha(opacity=50);\n  opacity: 0.8;\n}\n.card-button-active[data-v-1f34b2f5] {\n  transition: background-color 0.2s ease-out;\n  background: white !important;\n  color: black !important;\n}\n.test[data-v-1f34b2f5] {\n  background: white !important;\n  color: black !important;\n}", ""]);
 
 // exports
 
@@ -37794,7 +37824,14 @@ var render = function() {
       "div",
       { attrs: { id: "horizontal_bank_nav_bar" } },
       _vm._l(_vm.banks, function(bank, index) {
-        return _c("hb-NB-Crad", { key: index, attrs: { CurrentBank: bank } })
+        return _c("hb-NB-Crad", {
+          key: index,
+          attrs: {
+            Index: index,
+            Bank: bank,
+            Add_selected_bank: _vm.add_selected_bank
+          }
+        })
       }),
       1
     ),
@@ -37829,18 +37866,19 @@ var render = function() {
       "button",
       {
         staticClass: "card-button",
+        class: { "card-button-active": _vm.Bank.show },
         style: {
-          backgroundColor: _vm.validate_color(_vm.bank.bg_color),
-          color: _vm.validate_color(_vm.bank.font_color),
-          borderColor: _vm.validate_color(_vm.bank.bg_color)
+          backgroundColor: _vm.validate_color(_vm.Bank.bg_color),
+          color: _vm.validate_color(_vm.Bank.font_color),
+          borderColor: _vm.validate_color(_vm.Bank.bg_color)
         },
         on: {
           click: function($event) {
-            return _vm.select_bank(_vm.bank.id)
+            return _vm.select_bank(_vm.Index)
           }
         }
       },
-      [_vm._v("\n        " + _vm._s(_vm.bank.name) + "\n    ")]
+      [_vm._v("\n        " + _vm._s(_vm.Bank.name) + "\n    ")]
     )
   ])
 }

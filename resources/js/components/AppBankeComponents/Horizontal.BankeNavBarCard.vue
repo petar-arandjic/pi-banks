@@ -1,10 +1,11 @@
 <template>
     <div class="card">
         <button class="card-button"
-        :style="{ backgroundColor: validate_color(bank.bg_color), color: validate_color(bank.font_color), borderColor: validate_color(bank.bg_color)}"
-        @click="select_bank(bank.id)"
+        :style="{ backgroundColor: validate_color(Bank.bg_color), color: validate_color(Bank.font_color), borderColor: validate_color(Bank.bg_color)}"
+        :class="{ 'card-button-active': Bank.show }"
+        @click="select_bank(Index)"
         >
-            {{bank.name}}
+            {{Bank.name}}
         </button>
     </div>
 </template>
@@ -12,17 +13,31 @@
 <script>
 export default {
     props: {
-       CurrentBank: Object,
-       select_bank: Function
+       Bank: Object,
+       Index: Number,
+       Add_selected_bank: Function
     },
     data(){
         return {
-            bank: null
         }
     },
     methods:{
+        //Add prefix to color code || make color readable by css
         validate_color(color){
             return "#" + color
+        },
+        //Run functions that add bank info to screen and change style of bank card
+        select_bank(){
+            //check if we already added this bank to selected_bank array
+            if (!this.Bank.show) {
+                //check if array is full if not adds bank to array and return true
+                let is_array_full = this.Add_selected_bank(this.Index);
+                //if true change style of bank card
+                if (is_array_full) {
+                    //change bank show property to true
+                    this.Bank.show = true;
+                }
+            }
         }
     },
     watch: {
@@ -30,7 +45,7 @@ export default {
             immediate: true,
             handler() {
                 this.bank = this.CurrentBank
-                //console.log(this.bank)
+                //console.log(this.bank)mk
             }
         }
     },
@@ -75,7 +90,16 @@ export default {
         opacity: 0.8;
     }
     .card-button-active{
-        background: white;
-        color: black;
+        -webkit-transition: background-color 0.2s ease-out;
+        -moz-transition: background-color 0.2s ease-out;
+        -o-transition: background-color 0.2s ease-out;
+        transition: background-color 0.2s ease-out;
+
+        background: white !important;
+        color: black !important;
+    }
+    .test{
+        background: white !important;
+        color: black !important;
     }
 </style>

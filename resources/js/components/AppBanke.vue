@@ -4,7 +4,9 @@
         <div id="horizontal_bank_nav_bar">
             <hb-NB-Crad v-for="(bank, index) in banks"
             :key="index"
-            :CurrentBank="bank"
+            :Index="index"
+            :Bank="bank"
+            :Add_selected_bank="add_selected_bank"
             />
         </div>
         <div id="transactions_screen">
@@ -26,9 +28,23 @@ export default {
         }
     },
     methods:{
-        select_bank(id){
-            this.selected_banks.push(this.banks[id])
-            console.log(this.selected_banks)
+        get_selected_banks(){
+            for (let index = 0; index < this.banks.length; index++) {
+                if (this.banks[index].show) {
+                    this.selected_banks.push(this.banks[index]);
+                }
+            }
+        },
+        //push bank to selected_banks array || this function is run inside Horizontal.Banke.NavCard component
+        add_selected_bank(id){
+            if (this.selected_banks.length < 4) {
+                this.selected_banks.push(this.banks[id])
+
+                return true
+
+            }else{
+                alert('You can only have 4 bank windows displayed');
+            }
         }
     },
     //get bank data from server
@@ -42,6 +58,7 @@ export default {
             //console.log(JSON.parse(response));
             //console.log(response.data);
             this.banks = response.data;
+            this.get_selected_banks();
         });
     }
 }

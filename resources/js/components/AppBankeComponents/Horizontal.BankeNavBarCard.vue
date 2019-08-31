@@ -64,11 +64,11 @@ export default {
         width: 100%;
         height: 8%;
         margin-bottom: 5px;
+
     }
     .card-button{
         box-sizing: border-box;
         border: 5px solid;
-        border-radius: 2px;
 
         font-family: Arial, Helvetica, sans-serif;
         font-weight: 600;
@@ -97,9 +97,6 @@ export default {
 
         background: white !important;
         color: black !important;
-    }
-    .test{
-        background: white !important;
-        color: black !important;
+
     }
 </style>

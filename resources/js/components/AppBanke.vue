@@ -10,7 +10,10 @@
             />
         </div>
         <div id="transactions_screen">
-
+            <bank-Transaction-window class="b-tw" v-for="(bank, index) in selected_banks" :key="index"
+            :Bank="bank"
+            :Bank_amount="get_lenght(selected_banks)"
+            />
         </div>
     </div>
 </template>
@@ -24,7 +27,7 @@ export default {
             //all banks
             banks: [],
             //banks selected to be seen
-            selected_banks: []
+            selected_banks: [],
         }
     },
     methods:{
@@ -45,6 +48,10 @@ export default {
             }else{
                 alert('You can only have 4 bank windows displayed');
             }
+        },
+        //select right class for banks transaction window
+        get_lenght(val){
+            return val.length
         }
     },
     //get bank data from server
@@ -85,40 +92,39 @@ export default {
     #horizontal_bank_nav_bar{
         position: absolute;
 
-        left: 5px;
+        left: 10px;
 
         top: -webkit-calc(7% + 5px);
         top:    -moz-calc(7% + 5px);
         top:         calc(7% + 5px);
 
         width: -webkit-calc(10% - 5px);
-        width:    -moz-calc(10% - 5px);
+        width:    -moz-calc(10% -5px);
         width:         calc(10% - 5px);
 
-        height: -webkit-calc(93% - 10px);
-        height:    -moz-calc(93% - 10px);
-        height:         calc(93% - 10px);
+        height: -webkit-calc(93% - 5px);
+        height:    -moz-calc(93% - 5px);
+        height:         calc(93% - 5px);
 
         color: white;
     }
     #transactions_screen{
         position: absolute;
 
-        top: -webkit-calc(7% + 5px);
-        top:    -moz-calc(7% + 5px);
-        top:         calc(7% + 5px);
+        top: -webkit-calc(7% + 15px);
+        top:    -moz-calc(7% + 15px);
+        top:         calc(7% + 15px);
 
-        height: -webkit-calc(93% - 10px);
-        height:    -moz-calc(93% - 10px);
-        height:         calc(93% - 10px);
+        height: -webkit-calc(93% - 30px);
+        height:    -moz-calc(93% - 30px);
+        height:         calc(93% - 30px);
 
-        left: -webkit-calc(10% + 5px);
-        left:    -moz-calc(10% + 5px);
-        left:         calc(10% + 5px);
+        left: -webkit-calc(10% + 15px);
+        left:    -moz-calc(10% + 15px);
+        left:         calc(10% + 15px);
 
         width: 70%;
 
-        background: red;
     }
 </style>
 

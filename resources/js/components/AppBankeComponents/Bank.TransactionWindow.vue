@@ -10,26 +10,53 @@
             </div>
         </div>
         <div class="container"
-        :style="{ backgroundColor: increase_brightness(Bank.bg_color)}"
         >
-            <table class="bank">
-                <tr>
-                    <th>Saradnik</th>
-                    <th>Odliv</th>
-                    <th>Priliv</th>
-                    <th>Datum</th>
-                    <th></th>
-                </tr>
-                <tr v-for="(tran, id) in transactions" :key="id">
-                    <td>{{tran.client_id}}</td>
-                    <td v-if="tran.type_of_transaction === 2">{{tran.amount}}</td>
-                    <td v-else></td>
-                    <td v-if="tran.type_of_transaction === 1">{{tran.amount}}</td>
-                    <td v-else></td>
-                    <td>12.05.2019</td>
-                    <td>?</td>
-                </tr>
-            </table>
+            <div class="b-head">
+                <table class="bank">
+                    <tr>
+                        <th width="25%">Saradnik</th>
+                        <th width="25%">Odliv</th>
+                        <th width="25%">Priliv</th>
+                        <th width="20%">Datum</th>
+                        <th width="5%"></th>
+                    </tr>
+                </table>
+            </div>
+            <div class="b-body">
+                <table class="bank"
+                :style="{backgroundColor: increase_brightness(Bank.bg_color)}"
+                >
+                    <tr v-for="(tran, id) in transactions" :key="id">
+                        <td width="25%">{{tran.client_id}}</td>
+                        <td width="25%" v-if="tran.type_of_transaction === 2">{{tran.amount}}</td>
+                        <td width="25%" v-else></td>
+                        <td width="25%" v-if="tran.type_of_transaction === 1">{{tran.amount}}</td>
+                        <td width="25%" v-else></td>
+                        <td width="20%">12.05.2019</td>
+                        <td width="5%">?</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="b-footer">
+                <div class="bf-card">
+                    <button class="bf-card_left">
+                        Stanje
+                    </button>
+                    <button class="bf-card_right">10000</button>
+                </div>
+                <div class="bf-card">
+                    <button class="bf-card_left">
+                        Dozvoljeni<br/> Minus
+                    </button>
+                    <button class="bf-card_right">50000</button>
+                </div>
+                <div class="bf-card">
+                    <button class="bf-card_left">
+                        Dobit
+                    </button>
+                    <button class="bf-card_right">40005</button>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -110,6 +137,18 @@ export default {
 </script>
 
 <style lang="scss">
+    html {
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+    ::-webkit-scrollbar {
+        width: 0px;  /* Remove scrollbar space */
+        background: transparent;  /* Optional: just make scrollbar invisible */
+    }
+    /* Optional: show position indicator in red */
+    ::-webkit-scrollbar-thumb {
+        background: #FF0000;
+    }
     /*-----bank transactions window ------*/
     .b-tw{
         position: absolute;
@@ -245,6 +284,7 @@ export default {
         height: 92%;
         width: 100%;
     }
+
     .table{
         width: 100%;
     }
@@ -255,13 +295,27 @@ export default {
         border-collapse: collapse;
         width: 100%;
         text-align: center;
+        font-size: 1vw;
     }
+    .b-head{
+        position: absolute;
+        width: 100%;
+        height: 50px;
+    }
+    .b-body{
+        position: absolute;
+        top: 45px;
+        width: 100%;
+        overflow: auto;
 
+        height: -webkit-calc(88% - 45px);
+        height:    -moz-calc(88% - 45px);
+        height:         calc(88% - 45px);
+    }
     .bank td, .bank th {
         border: 1px solid #ddd;
         padding: 8px;
     }
-
     .bank tr:nth-child(even){background-color: #f2f2f2;}
 
     .bank tr:hover {background-color: #ddd;}
@@ -272,5 +326,45 @@ export default {
         text-align: center;
         background-color: #4CAF50;
         color: white;
+    }
+    .b-footer{
+        position: absolute;
+        width: 100%;
+        height: 12%;
+        bottom: 0px;
+        background-color: #4CAF50;
+        border: 1px solid #ddd;
+        font-size: 1vw;
+    }
+    .bf-card{
+        position: absolute;
+        width: 33.33%;
+        height: 100%;
+        color: white;
+    }
+    .bf-card:nth-child(1){
+        border-right: 1px solid #ddd;
+    }
+    .bf-card:nth-child(2){
+        left: 33.33%;
+        border-right: 1px solid #ddd;
+    }
+    .bf-card:nth-child(3){
+        right: 0px;
+    }
+    .bf-card p{
+        padding: 0px;
+        margin: 0px;
+    }
+    .bf-card_left{
+        position: absolute;
+        height: 100%;
+        width: 50%;
+    }
+    .bf-card_right{
+        position: absolute;
+        height: 100%;
+        width: 50%;
+        right: 0px;
     }
 </style>

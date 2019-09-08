@@ -1813,6 +1813,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     Bank: Object,
@@ -6427,7 +6454,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "/*-----bank transactions window ------*/\n.b-tw {\n  position: absolute;\n  width: 200px;\n  height: 200px;\n  box-sizing: border-box;\n  background: white;\n  overflow: hidden;\n  z-index: 1;\n  -webkit-animation: fadein 2s;\n  /* Safari, Chrome and Opera > 12.1 */\n  /* Firefox < 16 */\n  /* Internet Explorer */\n  /* Opera < 12.1 */\n  animation: fadein 2s;\n  /* For Safari 3.1 to 6.0 */\n  transition: width 0.5s, height 0.5s;\n}\n.b-tw h4 {\n  margin: 0px;\n  padding: 0px;\n  transition: font-size 0.5s;\n}\n@keyframes fadein {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n/* Firefox < 16 */\n/* Safari, Chrome and Opera > 12.1 */\n@-webkit-keyframes fadein {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n/* Internet Explorer */\n/* Opera < 12.1 */\n.b-tw1 {\n  height: 100%;\n  width: 100%;\n}\n.b-tw1 h4 {\n  font-size: 1.5vw;\n}\n.b-tw2 {\n  height: 100%;\n  width: calc(50% - 2.5px);\n}\n.b-tw2 h4 {\n  font-size: 1.5vw;\n}\n.b-tw2:nth-child(1) {\n  left: 0px;\n  top: 0px;\n}\n.b-tw2:nth-child(2) {\n  right: 0px;\n  top: 0px;\n}\n.b-tw4 {\n  height: calc(50% - 2.5px);\n  width: calc(50% - 2.5px);\n}\n.b-tw4 h4 {\n  font-size: 1vw;\n}\n.b-tw4:nth-child(1) {\n  left: 0px;\n  top: 0px;\n}\n.b-tw4:nth-child(2) {\n  right: 0px;\n  top: 0px;\n}\n.b-tw4:nth-child(3) {\n  left: 0px;\n  bottom: 0px;\n}\n.b-tw4:nth-child(4) {\n  right: 0px;\n  bottom: 0px;\n}\n.header {\n  position: absolute;\n  top: 0px;\n  width: 100%;\n  height: 8%;\n  color: white;\n}\n.all_text {\n  text-align: center;\n  position: absolute;\n  top: 0px;\n  bottom: 0px;\n  margin: auto;\n  width: 100%;\n  height: 55%;\n}\n.container {\n  position: absolute;\n  top: 8%;\n  height: 92%;\n  width: 100%;\n}\n.table {\n  width: 100%;\n}\n.bank {\n  font-family: \"Trebuchet MS\", Arial, Helvetica, sans-serif;\n  border-collapse: collapse;\n  width: 100%;\n  text-align: center;\n}\n.bank td, .bank th {\n  border: 1px solid #ddd;\n  padding: 8px;\n}\n.bank tr:nth-child(even) {\n  background-color: #f2f2f2;\n}\n.bank tr:hover {\n  background-color: #ddd;\n}\n.bank th {\n  padding-top: 12px;\n  padding-bottom: 12px;\n  text-align: center;\n  background-color: #4CAF50;\n  color: white;\n}", ""]);
+exports.push([module.i, "html {\n  overflow: scroll;\n  overflow-x: hidden;\n}\n::-webkit-scrollbar {\n  width: 0px;\n  /* Remove scrollbar space */\n  background: transparent;\n  /* Optional: just make scrollbar invisible */\n}\n\n/* Optional: show position indicator in red */\n::-webkit-scrollbar-thumb {\n  background: #FF0000;\n}\n\n/*-----bank transactions window ------*/\n.b-tw {\n  position: absolute;\n  width: 200px;\n  height: 200px;\n  box-sizing: border-box;\n  background: white;\n  overflow: hidden;\n  z-index: 1;\n  -webkit-animation: fadein 2s;\n  /* Safari, Chrome and Opera > 12.1 */\n  /* Firefox < 16 */\n  /* Internet Explorer */\n  /* Opera < 12.1 */\n  animation: fadein 2s;\n  /* For Safari 3.1 to 6.0 */\n  transition: width 0.5s, height 0.5s;\n}\n.b-tw h4 {\n  margin: 0px;\n  padding: 0px;\n  transition: font-size 0.5s;\n}\n@keyframes fadein {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n/* Firefox < 16 */\n/* Safari, Chrome and Opera > 12.1 */\n@-webkit-keyframes fadein {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n/* Internet Explorer */\n/* Opera < 12.1 */\n.b-tw1 {\n  height: 100%;\n  width: 100%;\n}\n.b-tw1 h4 {\n  font-size: 1.5vw;\n}\n.b-tw2 {\n  height: 100%;\n  width: calc(50% - 2.5px);\n}\n.b-tw2 h4 {\n  font-size: 1.5vw;\n}\n.b-tw2:nth-child(1) {\n  left: 0px;\n  top: 0px;\n}\n.b-tw2:nth-child(2) {\n  right: 0px;\n  top: 0px;\n}\n.b-tw4 {\n  height: calc(50% - 2.5px);\n  width: calc(50% - 2.5px);\n}\n.b-tw4 h4 {\n  font-size: 1vw;\n}\n.b-tw4:nth-child(1) {\n  left: 0px;\n  top: 0px;\n}\n.b-tw4:nth-child(2) {\n  right: 0px;\n  top: 0px;\n}\n.b-tw4:nth-child(3) {\n  left: 0px;\n  bottom: 0px;\n}\n.b-tw4:nth-child(4) {\n  right: 0px;\n  bottom: 0px;\n}\n.header {\n  position: absolute;\n  top: 0px;\n  width: 100%;\n  height: 8%;\n  color: white;\n}\n.all_text {\n  text-align: center;\n  position: absolute;\n  top: 0px;\n  bottom: 0px;\n  margin: auto;\n  width: 100%;\n  height: 55%;\n}\n.container {\n  position: absolute;\n  top: 8%;\n  height: 92%;\n  width: 100%;\n}\n.table {\n  width: 100%;\n}\n.bank {\n  font-family: \"Trebuchet MS\", Arial, Helvetica, sans-serif;\n  border-collapse: collapse;\n  width: 100%;\n  text-align: center;\n  font-size: 1vw;\n}\n.b-head {\n  position: absolute;\n  width: 100%;\n  height: 50px;\n}\n.b-body {\n  position: absolute;\n  top: 45px;\n  width: 100%;\n  overflow: auto;\n  height: calc(88% - 45px);\n}\n.bank td, .bank th {\n  border: 1px solid #ddd;\n  padding: 8px;\n}\n.bank tr:nth-child(even) {\n  background-color: #f2f2f2;\n}\n.bank tr:hover {\n  background-color: #ddd;\n}\n.bank th {\n  padding-top: 12px;\n  padding-bottom: 12px;\n  text-align: center;\n  background-color: #4CAF50;\n  color: white;\n}\n.b-footer {\n  position: absolute;\n  width: 100%;\n  height: 12%;\n  bottom: 0px;\n  background-color: #4CAF50;\n  border: 1px solid #ddd;\n  font-size: 1vw;\n}\n.bf-card {\n  position: absolute;\n  width: 33.33%;\n  height: 100%;\n  color: white;\n}\n.bf-card:nth-child(1) {\n  border-right: 1px solid #ddd;\n}\n.bf-card:nth-child(2) {\n  left: 33.33%;\n  border-right: 1px solid #ddd;\n}\n.bf-card:nth-child(3) {\n  right: 0px;\n}\n.bf-card p {\n  padding: 0px;\n  margin: 0px;\n}\n.bf-card_left {\n  position: absolute;\n  height: 100%;\n  width: 50%;\n}\n.bf-card_right {\n  position: absolute;\n  height: 100%;\n  width: 50%;\n  right: 0px;\n}", ""]);
 
 // exports
 
@@ -38057,41 +38084,47 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "container",
-        style: { backgroundColor: _vm.increase_brightness(_vm.Bank.bg_color) }
-      },
-      [
+    _c("div", { staticClass: "container" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "b-body" }, [
         _c(
           "table",
-          { staticClass: "bank" },
-          [
-            _vm._m(0),
-            _vm._v(" "),
-            _vm._l(_vm.transactions, function(tran, id) {
-              return _c("tr", { key: id }, [
-                _c("td", [_vm._v(_vm._s(tran.client_id))]),
-                _vm._v(" "),
-                tran.type_of_transaction === 2
-                  ? _c("td", [_vm._v(_vm._s(tran.amount))])
-                  : _c("td"),
-                _vm._v(" "),
-                tran.type_of_transaction === 1
-                  ? _c("td", [_vm._v(_vm._s(tran.amount))])
-                  : _c("td"),
-                _vm._v(" "),
-                _c("td", [_vm._v("12.05.2019")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("?")])
-              ])
-            })
-          ],
-          2
+          {
+            staticClass: "bank",
+            style: {
+              backgroundColor: _vm.increase_brightness(_vm.Bank.bg_color)
+            }
+          },
+          _vm._l(_vm.transactions, function(tran, id) {
+            return _c("tr", { key: id }, [
+              _c("td", { attrs: { width: "25%" } }, [
+                _vm._v(_vm._s(tran.client_id))
+              ]),
+              _vm._v(" "),
+              tran.type_of_transaction === 2
+                ? _c("td", { attrs: { width: "25%" } }, [
+                    _vm._v(_vm._s(tran.amount))
+                  ])
+                : _c("td", { attrs: { width: "25%" } }),
+              _vm._v(" "),
+              tran.type_of_transaction === 1
+                ? _c("td", { attrs: { width: "25%" } }, [
+                    _vm._v(_vm._s(tran.amount))
+                  ])
+                : _c("td", { attrs: { width: "25%" } }),
+              _vm._v(" "),
+              _c("td", { attrs: { width: "20%" } }, [_vm._v("12.05.2019")]),
+              _vm._v(" "),
+              _c("td", { attrs: { width: "5%" } }, [_vm._v("?")])
+            ])
+          }),
+          0
         )
-      ]
-    )
+      ]),
+      _vm._v(" "),
+      _vm._m(1)
+    ])
   ])
 }
 var staticRenderFns = [
@@ -38099,16 +38132,52 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("th", [_vm._v("Saradnik")]),
+    return _c("div", { staticClass: "b-head" }, [
+      _c("table", { staticClass: "bank" }, [
+        _c("tr", [
+          _c("th", { attrs: { width: "25%" } }, [_vm._v("Saradnik")]),
+          _vm._v(" "),
+          _c("th", { attrs: { width: "25%" } }, [_vm._v("Odliv")]),
+          _vm._v(" "),
+          _c("th", { attrs: { width: "25%" } }, [_vm._v("Priliv")]),
+          _vm._v(" "),
+          _c("th", { attrs: { width: "20%" } }, [_vm._v("Datum")]),
+          _vm._v(" "),
+          _c("th", { attrs: { width: "5%" } })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "b-footer" }, [
+      _c("div", { staticClass: "bf-card" }, [
+        _c("button", { staticClass: "bf-card_left" }, [
+          _vm._v("\n                    Stanje\n                ")
+        ]),
+        _vm._v(" "),
+        _c("button", { staticClass: "bf-card_right" }, [_vm._v("10000")])
+      ]),
       _vm._v(" "),
-      _c("th", [_vm._v("Odliv")]),
+      _c("div", { staticClass: "bf-card" }, [
+        _c("button", { staticClass: "bf-card_left" }, [
+          _vm._v("\n                    Dozvoljeni"),
+          _c("br"),
+          _vm._v(" Minus\n                ")
+        ]),
+        _vm._v(" "),
+        _c("button", { staticClass: "bf-card_right" }, [_vm._v("50000")])
+      ]),
       _vm._v(" "),
-      _c("th", [_vm._v("Priliv")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Datum")]),
-      _vm._v(" "),
-      _c("th")
+      _c("div", { staticClass: "bf-card" }, [
+        _c("button", { staticClass: "bf-card_left" }, [
+          _vm._v("\n                    Dobit\n                ")
+        ]),
+        _vm._v(" "),
+        _c("button", { staticClass: "bf-card_right" }, [_vm._v("40005")])
+      ])
     ])
   }
 ]

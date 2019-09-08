@@ -12,6 +12,7 @@
         <div id="transactions_screen">
             <bank-Transaction-window class="b-tw" v-for="(bank, index) in selected_banks" :key="index"
             :Bank="bank"
+            :index="index"
             :Bank_amount="get_lenght(selected_banks)"
             />
         </div>

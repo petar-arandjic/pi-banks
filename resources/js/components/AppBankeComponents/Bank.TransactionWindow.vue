@@ -3,7 +3,7 @@
     :class="class_name"
     >
         <div class="header"
-        :style="{ backgroundColor: validateColor(Bank.bg_color)}"
+        :style="{ backgroundColor: validateColor(Bank.bg_color), color: validateColor(Bank.font_color)}"
         >
             <div class="all_text">
                 <h4>{{Bank.name}}</h4>
@@ -12,13 +12,15 @@
         <div class="container"
         >
             <div class="b-head">
-                <table class="bank">
+                <table class="bank"
+                :style="{ backgroundColor: validateColor(Bank.bg_color), color: validateColor(Bank.font_color)}"
+                >
                     <tr>
+                        <th width="10%"></th>
                         <th width="25%">Saradnik</th>
                         <th width="25%">Odliv</th>
-                        <th width="25%">Priliv</th>
+                        <th width="20%">Priliv</th>
                         <th width="20%">Datum</th>
-                        <th width="5%"></th>
                     </tr>
                 </table>
             </div>
@@ -27,17 +29,19 @@
                 :style="{backgroundColor: increase_brightness(Bank.bg_color)}"
                 >
                     <tr v-for="(tran, id) in transactions" :key="id">
+                        <td width="10%">{{id + 1}}</td>
                         <td width="25%">{{tran.client_id}}</td>
                         <td width="25%" v-if="tran.type_of_transaction === 2">{{tran.amount}}</td>
                         <td width="25%" v-else></td>
-                        <td width="25%" v-if="tran.type_of_transaction === 1">{{tran.amount}}</td>
-                        <td width="25%" v-else></td>
+                        <td width="20%" v-if="tran.type_of_transaction === 1">{{tran.amount}}</td>
+                        <td width="20%" v-else></td>
                         <td width="20%">12.05.2019</td>
-                        <td width="5%">?</td>
                     </tr>
                 </table>
             </div>
-            <div class="b-footer">
+            <div class="b-footer"
+            :style="{ backgroundColor: validateColor(Bank.bg_color), color: validateColor(Bank.font_color)}"
+            >
                 <div class="bf-card">
                     <button class="bf-card_left">
                         Stanje
@@ -66,7 +70,9 @@ export default {
     props:{
         Bank: Object,
         //How many bank are selected
-        Bank_amount : Number
+        Bank_amount : Number,
+
+        index: Number
     },
     data(){
         return {
@@ -176,6 +182,7 @@ export default {
         -webkit-transition: width 0.5s, height 0.5s; /* For Safari 3.1 to 6.0 */
         transition: width 0.5s, height 0.5s;
     }
+
     @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
@@ -267,7 +274,6 @@ export default {
         top: 0px;
         width: 100%;
         height: 8%;
-        color: white;
     }
     .all_text{
         text-align: center;
@@ -316,7 +322,7 @@ export default {
         border: 1px solid #ddd;
         padding: 8px;
     }
-    .bank tr:nth-child(even){background-color: #f2f2f2;}
+    .bank tr:nth-child(even){background-color: white;}
 
     .bank tr:hover {background-color: #ddd;}
 
@@ -324,15 +330,17 @@ export default {
         padding-top: 12px;
         padding-bottom: 12px;
         text-align: center;
+
+        /*
         background-color: #4CAF50;
         color: white;
+        */
     }
     .b-footer{
         position: absolute;
         width: 100%;
         height: 12%;
         bottom: 0px;
-        background-color: #4CAF50;
         border: 1px solid #ddd;
         font-size: 1vw;
     }
@@ -340,7 +348,6 @@ export default {
         position: absolute;
         width: 33.33%;
         height: 100%;
-        color: white;
     }
     .bf-card:nth-child(1){
         border-right: 1px solid #ddd;

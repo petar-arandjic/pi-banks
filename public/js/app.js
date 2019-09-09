@@ -38121,7 +38121,7 @@ var render = function() {
               backgroundColor: _vm.increase_brightness(_vm.Bank.bg_color)
             }
           },
-          _vm._l(_vm.transactions, function(tran, id) {
+          _vm._l(_vm.transactions.data, function(tran, id) {
             return _c("tr", { key: id }, [
               _c("td", { attrs: { width: "10%" } }, [_vm._v(_vm._s(id + 1))]),
               _vm._v(" "),
@@ -38157,7 +38157,35 @@ var render = function() {
             color: _vm.validateColor(_vm.Bank.font_color)
           }
         },
-        [_vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3)]
+        [
+          _c("div", { staticClass: "bf-card" }, [
+            _c("button", { staticClass: "bf-card_left" }, [
+              _vm._v("\n                    Stanje\n                ")
+            ]),
+            _vm._v(" "),
+            _c("button", { staticClass: "bf-card_right" }, [
+              _vm._v(_vm._s(_vm.transactions.balance))
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "bf-card" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("button", { staticClass: "bf-card_right" }, [
+              _vm._v("-" + _vm._s(_vm.Bank.allowed_overdraft.toFixed(2)))
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "bf-card" }, [
+            _c("button", { staticClass: "bf-card_left" }, [
+              _vm._v("\n                    Dobit\n                ")
+            ]),
+            _vm._v(" "),
+            _c("button", { staticClass: "bf-card_right" }, [
+              _vm._v(_vm._s(_vm.transactions.profit))
+            ])
+          ])
+        ]
       )
     ])
   ])
@@ -38183,38 +38211,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "bf-card" }, [
-      _c("button", { staticClass: "bf-card_left" }, [
-        _vm._v("\n                    Stanje\n                ")
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "bf-card_right" }, [_vm._v("10000")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "bf-card" }, [
-      _c("button", { staticClass: "bf-card_left" }, [
-        _vm._v("\n                    Dozvoljeni"),
-        _c("br"),
-        _vm._v(" Minus\n                ")
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "bf-card_right" }, [_vm._v("50000")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "bf-card" }, [
-      _c("button", { staticClass: "bf-card_left" }, [
-        _vm._v("\n                    Dobit\n                ")
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "bf-card_right" }, [_vm._v("40005")])
+    return _c("button", { staticClass: "bf-card_left" }, [
+      _vm._v("\n                    Dozvoljeni"),
+      _c("br"),
+      _vm._v(" Minus\n                ")
     ])
   }
 ]

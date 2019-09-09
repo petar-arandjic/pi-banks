@@ -23,4 +23,10 @@ class TransactionController extends Controller
 
         return $transactions;
     }
+
+    public function get_sum($id){
+        return Transaction::where('bank_id', $id)
+                            ->where('type_of_transaction', 1)
+                            ->sum('amount');
+    }
 }

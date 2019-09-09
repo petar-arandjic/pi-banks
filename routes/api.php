@@ -27,3 +27,5 @@ Route::get('transactions', 'TransactionController@index');
 
 Route::get('banks/{bank}/transactions', 'BankTransactionsController@index');
 
+Route::get('test/{id}', 'TransactionController@get_sum');
+

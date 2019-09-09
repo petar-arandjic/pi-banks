@@ -20,7 +20,7 @@ class BankController extends Controller
 
         $banks =  DB::table('banks')
         ->join('bank_styles', 'banks.style_id', '=', 'bank_styles.id')
-        ->select('banks.id', 'name','font_color', 'bg_color', 'account', 'show')
+        ->select('banks.id', 'name','font_color', 'bg_color', 'account', 'show', 'allowed_overdraft')
         ->get();
         return BankResource::collection($banks);
         //return Bank::all();

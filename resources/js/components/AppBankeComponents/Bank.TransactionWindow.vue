@@ -28,7 +28,7 @@
                 <table class="bank"
                 :style="{backgroundColor: increase_brightness(Bank.bg_color)}"
                 >
-                    <tr v-for="(tran, id) in transactions" :key="id">
+                    <tr v-for="(tran, id) in transactions.data" :key="id">
                         <td width="10%">{{id + 1}}</td>
                         <td width="25%">{{tran.client_id}}</td>
                         <td width="25%" v-if="tran.type_of_transaction === 2">{{tran.amount}}</td>
@@ -46,19 +46,19 @@
                     <button class="bf-card_left">
                         Stanje
                     </button>
-                    <button class="bf-card_right">10000</button>
+                    <button class="bf-card_right">{{transactions.balance}}</button>
                 </div>
                 <div class="bf-card">
                     <button class="bf-card_left">
                         Dozvoljeni<br/> Minus
                     </button>
-                    <button class="bf-card_right">50000</button>
+                    <button class="bf-card_right">-{{ Bank.allowed_overdraft.toFixed(2) }}</button>
                 </div>
                 <div class="bf-card">
                     <button class="bf-card_left">
                         Dobit
                     </button>
-                    <button class="bf-card_right">40005</button>
+                    <button class="bf-card_right">{{transactions.profit}}</button>
                 </div>
             </div>
         </div>

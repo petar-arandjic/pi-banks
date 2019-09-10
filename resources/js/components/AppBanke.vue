@@ -14,7 +14,11 @@
             :Bank="bank"
             :index="index"
             :Bank_amount="get_lenght(selected_banks)"
+            :remove_selected_bank="remove_selected_bank"
             />
+        </div>
+        <div id="main_info_window">
+            <bank-main-info/>
         </div>
     </div>
 </template>
@@ -49,6 +53,14 @@ export default {
             }else{
                 alert('You can only have 4 bank windows displayed');
             }
+        },
+        //remove selected bank from
+        remove_selected_bank(id){
+            //change bank style
+            this.selected_banks[id].show = false;
+
+            this.selected_banks.splice(id, 1);
+            console.log(id);
         },
         //select right class for banks transaction window
         get_lenght(val){
@@ -125,7 +137,21 @@ export default {
         left:         calc(10% + 15px);
 
         width: 70%;
+    }
 
+    #main_info_window{
+        position: absolute;
+        right: 0px;
+        top: 7%;
+        box-sizing: border-box;
+
+        border: 5px solid #E53935;
+
+        height: 93%;
+
+        width: -webkit-calc(20% - 30px);
+        width:    -moz-calc(20% - 30px);
+        width:         calc(20% - 30px);
     }
 </style>
 

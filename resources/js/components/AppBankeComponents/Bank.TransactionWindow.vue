@@ -8,6 +8,9 @@
             <div class="all_text">
                 <h4>{{Bank.name}}</h4>
             </div>
+            <div class="h-button"
+            @click="remove_selected_bank(index)"
+            ></div>
         </div>
         <div class="container"
         >
@@ -56,7 +59,7 @@
                 </div>
                 <div class="bf-card">
                     <button class="bf-card_left">
-                        Dobit
+                        Saldo
                     </button>
                     <button class="bf-card_right">{{transactions.profit}}</button>
                 </div>
@@ -72,7 +75,9 @@ export default {
         //How many bank are selected
         Bank_amount : Number,
 
-        index: Number
+        index: Number,
+
+        remove_selected_bank: Function
     },
     data(){
         return {
@@ -283,6 +288,16 @@ export default {
         margin: auto;
         width: 100%;
         height: 55%;
+    }
+    .h-button{
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        height: 15px;
+        width: 15px;
+        background: white;
+        border-radius: 50%;
+        cursor: pointer;
     }
     .container{
         position: absolute;

@@ -22,6 +22,7 @@ window.Vue = require('vue');
 Vue.component('app-banke', require('./components/AppBanke.vue').default);
 Vue.component('hb-NB-Crad', require('./components/AppBankeComponents/Horizontal.BankeNavBarCard.vue').default);
 Vue.component('bank-Transaction-window', require('./components/AppBankeComponents/Bank.TransactionWindow.vue').default);
+Vue.component('bank-main-info', require('./components/AppBankeComponents/Bank.MainInfo.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

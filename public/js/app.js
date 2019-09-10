@@ -1718,6 +1718,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'App-Banks',
   data: function data() {
@@ -1745,6 +1749,13 @@ __webpack_require__.r(__webpack_exports__);
         alert('You can only have 4 bank windows displayed');
       }
     },
+    //remove selected bank from
+    remove_selected_bank: function remove_selected_bank(id) {
+      //change bank style
+      this.selected_banks[id].show = false;
+      this.selected_banks.splice(id, 1);
+      console.log(id);
+    },
     //select right class for banks transaction window
     get_lenght: function get_lenght(val) {
       return val.length;
@@ -1766,6 +1777,27 @@ __webpack_require__.r(__webpack_exports__);
     });
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AppBankeComponents/Bank.MainInfo.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AppBankeComponents/Bank.MainInfo.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
@@ -1845,12 +1877,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     Bank: Object,
     //How many bank are selected
     Bank_amount: Number,
-    index: Number
+    index: Number,
+    remove_selected_bank: Function
   },
   data: function data() {
     return {
@@ -6441,7 +6477,26 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "button, input[type=submit], input[type=reset] {\n  background: none;\n  color: inherit;\n  border: none;\n  padding: 0;\n  font: inherit;\n  cursor: pointer;\n  outline: inherit;\n}\n#nav_bar_place {\n  position: absolute;\n  width: 100%;\n  height: 7%;\n  top: 0px;\n  background: lightgray;\n}\n#horizontal_bank_nav_bar {\n  position: absolute;\n  left: 10px;\n  top: calc(7% + 5px);\n  width: calc(10% - 5px);\n  height: calc(93% - 5px);\n  color: white;\n}\n#transactions_screen {\n  position: absolute;\n  top: calc(7% + 15px);\n  height: calc(93% - 30px);\n  left: calc(10% + 15px);\n  width: 70%;\n}", ""]);
+exports.push([module.i, "button, input[type=submit], input[type=reset] {\n  background: none;\n  color: inherit;\n  border: none;\n  padding: 0;\n  font: inherit;\n  cursor: pointer;\n  outline: inherit;\n}\n#nav_bar_place {\n  position: absolute;\n  width: 100%;\n  height: 7%;\n  top: 0px;\n  background: lightgray;\n}\n#horizontal_bank_nav_bar {\n  position: absolute;\n  left: 10px;\n  top: calc(7% + 5px);\n  width: calc(10% - 5px);\n  height: calc(93% - 5px);\n  color: white;\n}\n#transactions_screen {\n  position: absolute;\n  top: calc(7% + 15px);\n  height: calc(93% - 30px);\n  left: calc(10% + 15px);\n  width: 70%;\n}\n#main_info_window {\n  position: absolute;\n  right: 0px;\n  top: 7%;\n  box-sizing: border-box;\n  border: 5px solid #E53935;\n  height: 93%;\n  width: calc(20% - 30px);\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/lib/loader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AppBankeComponents/Bank.MainInfo.vue?vue&type=style&index=0&lang=scss&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/lib/loader.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AppBankeComponents/Bank.MainInfo.vue?vue&type=style&index=0&lang=scss& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".global {\n  font-family: \"Trebuchet MS\", Arial, Helvetica, sans-serif;\n}\n.db-newTransaction {\n  position: absolute;\n  bottom: 5px;\n  left: 5px;\n  right: 5px;\n  height: 30px;\n}\n.b-newTransaction {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  background: #E53935;\n  color: white;\n  font-weight: bold;\n}\n.b-newTransaction:hover {\n  opacity: 0.9;\n}\n.b-newTransaction:active {\n  opacity: 0.8;\n}", ""]);
 
 // exports
 
@@ -6460,7 +6515,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "html {\n  overflow: scroll;\n  overflow-x: hidden;\n}\n::-webkit-scrollbar {\n  width: 0px;\n  /* Remove scrollbar space */\n  background: transparent;\n  /* Optional: just make scrollbar invisible */\n}\n\n/* Optional: show position indicator in red */\n::-webkit-scrollbar-thumb {\n  background: #FF0000;\n}\n\n/*-----bank transactions window ------*/\n.b-tw {\n  position: absolute;\n  width: 200px;\n  height: 200px;\n  box-sizing: border-box;\n  background: white;\n  overflow: hidden;\n  z-index: 1;\n  -webkit-animation: fadein 2s;\n  /* Safari, Chrome and Opera > 12.1 */\n  /* Firefox < 16 */\n  /* Internet Explorer */\n  /* Opera < 12.1 */\n  animation: fadein 2s;\n  /* For Safari 3.1 to 6.0 */\n  transition: width 0.5s, height 0.5s;\n}\n.b-tw h4 {\n  margin: 0px;\n  padding: 0px;\n  transition: font-size 0.5s;\n}\n@keyframes fadein {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n/* Firefox < 16 */\n/* Safari, Chrome and Opera > 12.1 */\n@-webkit-keyframes fadein {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n/* Internet Explorer */\n/* Opera < 12.1 */\n.b-tw1 {\n  height: 100%;\n  width: 100%;\n}\n.b-tw1 h4 {\n  font-size: 1.5vw;\n}\n.b-tw2 {\n  height: 100%;\n  width: calc(50% - 2.5px);\n}\n.b-tw2 h4 {\n  font-size: 1.5vw;\n}\n.b-tw2:nth-child(1) {\n  left: 0px;\n  top: 0px;\n}\n.b-tw2:nth-child(2) {\n  right: 0px;\n  top: 0px;\n}\n.b-tw4 {\n  height: calc(50% - 2.5px);\n  width: calc(50% - 2.5px);\n}\n.b-tw4 h4 {\n  font-size: 1vw;\n}\n.b-tw4:nth-child(1) {\n  left: 0px;\n  top: 0px;\n}\n.b-tw4:nth-child(2) {\n  right: 0px;\n  top: 0px;\n}\n.b-tw4:nth-child(3) {\n  left: 0px;\n  bottom: 0px;\n}\n.b-tw4:nth-child(4) {\n  right: 0px;\n  bottom: 0px;\n}\n.header {\n  position: absolute;\n  top: 0px;\n  width: 100%;\n  height: 8%;\n}\n.all_text {\n  text-align: center;\n  position: absolute;\n  top: 0px;\n  bottom: 0px;\n  margin: auto;\n  width: 100%;\n  height: 55%;\n}\n.container {\n  position: absolute;\n  top: 8%;\n  height: 92%;\n  width: 100%;\n}\n.table {\n  width: 100%;\n}\n.bank {\n  font-family: \"Trebuchet MS\", Arial, Helvetica, sans-serif;\n  border-collapse: collapse;\n  width: 100%;\n  text-align: center;\n  font-size: 1vw;\n}\n.b-head {\n  position: absolute;\n  width: 100%;\n  height: 50px;\n}\n.b-body {\n  position: absolute;\n  top: 45px;\n  width: 100%;\n  overflow: auto;\n  height: calc(88% - 45px);\n}\n.bank td, .bank th {\n  border: 1px solid #ddd;\n  padding: 8px;\n}\n.bank tr:nth-child(even) {\n  background-color: white;\n}\n.bank tr:hover {\n  background-color: #ddd;\n}\n.bank th {\n  padding-top: 12px;\n  padding-bottom: 12px;\n  text-align: center;\n  /*\n  background-color: #4CAF50;\n  color: white;\n  */\n}\n.b-footer {\n  position: absolute;\n  width: 100%;\n  height: 12%;\n  bottom: 0px;\n  border: 1px solid #ddd;\n  font-size: 1vw;\n}\n.bf-card {\n  position: absolute;\n  width: 33.33%;\n  height: 100%;\n}\n.bf-card:nth-child(1) {\n  border-right: 1px solid #ddd;\n}\n.bf-card:nth-child(2) {\n  left: 33.33%;\n  border-right: 1px solid #ddd;\n}\n.bf-card:nth-child(3) {\n  right: 0px;\n}\n.bf-card p {\n  padding: 0px;\n  margin: 0px;\n}\n.bf-card_left {\n  position: absolute;\n  height: 100%;\n  width: 50%;\n}\n.bf-card_right {\n  position: absolute;\n  height: 100%;\n  width: 50%;\n  right: 0px;\n}", ""]);
+exports.push([module.i, "html {\n  overflow: scroll;\n  overflow-x: hidden;\n}\n::-webkit-scrollbar {\n  width: 0px;\n  /* Remove scrollbar space */\n  background: transparent;\n  /* Optional: just make scrollbar invisible */\n}\n\n/* Optional: show position indicator in red */\n::-webkit-scrollbar-thumb {\n  background: #FF0000;\n}\n\n/*-----bank transactions window ------*/\n.b-tw {\n  position: absolute;\n  width: 200px;\n  height: 200px;\n  box-sizing: border-box;\n  background: white;\n  overflow: hidden;\n  z-index: 1;\n  -webkit-animation: fadein 2s;\n  /* Safari, Chrome and Opera > 12.1 */\n  /* Firefox < 16 */\n  /* Internet Explorer */\n  /* Opera < 12.1 */\n  animation: fadein 2s;\n  /* For Safari 3.1 to 6.0 */\n  transition: width 0.5s, height 0.5s;\n}\n.b-tw h4 {\n  margin: 0px;\n  padding: 0px;\n  transition: font-size 0.5s;\n}\n@keyframes fadein {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n/* Firefox < 16 */\n/* Safari, Chrome and Opera > 12.1 */\n@-webkit-keyframes fadein {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n/* Internet Explorer */\n/* Opera < 12.1 */\n.b-tw1 {\n  height: 100%;\n  width: 100%;\n}\n.b-tw1 h4 {\n  font-size: 1.5vw;\n}\n.b-tw2 {\n  height: 100%;\n  width: calc(50% - 2.5px);\n}\n.b-tw2 h4 {\n  font-size: 1.5vw;\n}\n.b-tw2:nth-child(1) {\n  left: 0px;\n  top: 0px;\n}\n.b-tw2:nth-child(2) {\n  right: 0px;\n  top: 0px;\n}\n.b-tw4 {\n  height: calc(50% - 2.5px);\n  width: calc(50% - 2.5px);\n}\n.b-tw4 h4 {\n  font-size: 1vw;\n}\n.b-tw4:nth-child(1) {\n  left: 0px;\n  top: 0px;\n}\n.b-tw4:nth-child(2) {\n  right: 0px;\n  top: 0px;\n}\n.b-tw4:nth-child(3) {\n  left: 0px;\n  bottom: 0px;\n}\n.b-tw4:nth-child(4) {\n  right: 0px;\n  bottom: 0px;\n}\n.header {\n  position: absolute;\n  top: 0px;\n  width: 100%;\n  height: 8%;\n}\n.all_text {\n  text-align: center;\n  position: absolute;\n  top: 0px;\n  bottom: 0px;\n  margin: auto;\n  width: 100%;\n  height: 55%;\n}\n.h-button {\n  position: absolute;\n  right: 5px;\n  top: 5px;\n  height: 15px;\n  width: 15px;\n  background: white;\n  border-radius: 50%;\n  cursor: pointer;\n}\n.container {\n  position: absolute;\n  top: 8%;\n  height: 92%;\n  width: 100%;\n}\n.table {\n  width: 100%;\n}\n.bank {\n  font-family: \"Trebuchet MS\", Arial, Helvetica, sans-serif;\n  border-collapse: collapse;\n  width: 100%;\n  text-align: center;\n  font-size: 1vw;\n}\n.b-head {\n  position: absolute;\n  width: 100%;\n  height: 50px;\n}\n.b-body {\n  position: absolute;\n  top: 45px;\n  width: 100%;\n  overflow: auto;\n  height: calc(88% - 45px);\n}\n.bank td, .bank th {\n  border: 1px solid #ddd;\n  padding: 8px;\n}\n.bank tr:nth-child(even) {\n  background-color: white;\n}\n.bank tr:hover {\n  background-color: #ddd;\n}\n.bank th {\n  padding-top: 12px;\n  padding-bottom: 12px;\n  text-align: center;\n  /*\n  background-color: #4CAF50;\n  color: white;\n  */\n}\n.b-footer {\n  position: absolute;\n  width: 100%;\n  height: 12%;\n  bottom: 0px;\n  border: 1px solid #ddd;\n  font-size: 1vw;\n}\n.bf-card {\n  position: absolute;\n  width: 33.33%;\n  height: 100%;\n}\n.bf-card:nth-child(1) {\n  border-right: 1px solid #ddd;\n}\n.bf-card:nth-child(2) {\n  left: 33.33%;\n  border-right: 1px solid #ddd;\n}\n.bf-card:nth-child(3) {\n  right: 0px;\n}\n.bf-card p {\n  padding: 0px;\n  margin: 0px;\n}\n.bf-card_left {\n  position: absolute;\n  height: 100%;\n  width: 50%;\n}\n.bf-card_right {\n  position: absolute;\n  height: 100%;\n  width: 50%;\n  right: 0px;\n}", ""]);
 
 // exports
 
@@ -37362,6 +37417,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/lib/loader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AppBankeComponents/Bank.MainInfo.vue?vue&type=style&index=0&lang=scss&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/lib/loader.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AppBankeComponents/Bank.MainInfo.vue?vue&type=style&index=0&lang=scss& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/sass-loader/lib/loader.js??ref--7-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./Bank.MainInfo.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/lib/loader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AppBankeComponents/Bank.MainInfo.vue?vue&type=style&index=0&lang=scss&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/lib/loader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AppBankeComponents/Bank.TransactionWindow.vue?vue&type=style&index=0&lang=scss&":
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/lib/loader.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AppBankeComponents/Bank.TransactionWindow.vue?vue&type=style&index=0&lang=scss& ***!
@@ -38050,15 +38135,55 @@ var render = function() {
           attrs: {
             Bank: bank,
             index: index,
-            Bank_amount: _vm.get_lenght(_vm.selected_banks)
+            Bank_amount: _vm.get_lenght(_vm.selected_banks),
+            remove_selected_bank: _vm.remove_selected_bank
           }
         })
       }),
       1
-    )
+    ),
+    _vm._v(" "),
+    _c("div", { attrs: { id: "main_info_window" } }, [_c("bank-main-info")], 1)
   ])
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AppBankeComponents/Bank.MainInfo.vue?vue&type=template&id=d1d8a25a&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AppBankeComponents/Bank.MainInfo.vue?vue&type=template&id=d1d8a25a& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "global" }, [
+      _c("div", { staticClass: "db-newTransaction" }, [
+        _c("button", { staticClass: "b-newTransaction" }, [
+          _vm._v("DODAJ NOVU TRANSAKCIJU")
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -38093,7 +38218,16 @@ var render = function() {
       [
         _c("div", { staticClass: "all_text" }, [
           _c("h4", [_vm._v(_vm._s(_vm.Bank.name))])
-        ])
+        ]),
+        _vm._v(" "),
+        _c("div", {
+          staticClass: "h-button",
+          on: {
+            click: function($event) {
+              return _vm.remove_selected_bank(_vm.index)
+            }
+          }
+        })
       ]
     ),
     _vm._v(" "),
@@ -38178,7 +38312,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "bf-card" }, [
             _c("button", { staticClass: "bf-card_left" }, [
-              _vm._v("\n                    Dobit\n                ")
+              _vm._v("\n                    Saldo\n                ")
             ]),
             _vm._v(" "),
             _c("button", { staticClass: "bf-card_right" }, [
@@ -50431,6 +50565,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 Vue.component('app-banke', __webpack_require__(/*! ./components/AppBanke.vue */ "./resources/js/components/AppBanke.vue")["default"]);
 Vue.component('hb-NB-Crad', __webpack_require__(/*! ./components/AppBankeComponents/Horizontal.BankeNavBarCard.vue */ "./resources/js/components/AppBankeComponents/Horizontal.BankeNavBarCard.vue")["default"]);
 Vue.component('bank-Transaction-window', __webpack_require__(/*! ./components/AppBankeComponents/Bank.TransactionWindow.vue */ "./resources/js/components/AppBankeComponents/Bank.TransactionWindow.vue")["default"]);
+Vue.component('bank-main-info', __webpack_require__(/*! ./components/AppBankeComponents/Bank.MainInfo.vue */ "./resources/js/components/AppBankeComponents/Bank.MainInfo.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -50583,6 +50718,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AppBanke_vue_vue_type_template_id_15e05573___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AppBanke_vue_vue_type_template_id_15e05573___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/AppBankeComponents/Bank.MainInfo.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/AppBankeComponents/Bank.MainInfo.vue ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Bank_MainInfo_vue_vue_type_template_id_d1d8a25a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Bank.MainInfo.vue?vue&type=template&id=d1d8a25a& */ "./resources/js/components/AppBankeComponents/Bank.MainInfo.vue?vue&type=template&id=d1d8a25a&");
+/* harmony import */ var _Bank_MainInfo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Bank.MainInfo.vue?vue&type=script&lang=js& */ "./resources/js/components/AppBankeComponents/Bank.MainInfo.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Bank_MainInfo_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Bank.MainInfo.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/components/AppBankeComponents/Bank.MainInfo.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Bank_MainInfo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Bank_MainInfo_vue_vue_type_template_id_d1d8a25a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Bank_MainInfo_vue_vue_type_template_id_d1d8a25a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/AppBankeComponents/Bank.MainInfo.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/AppBankeComponents/Bank.MainInfo.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/AppBankeComponents/Bank.MainInfo.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bank_MainInfo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Bank.MainInfo.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AppBankeComponents/Bank.MainInfo.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Bank_MainInfo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/AppBankeComponents/Bank.MainInfo.vue?vue&type=style&index=0&lang=scss&":
+/*!********************************************************************************************************!*\
+  !*** ./resources/js/components/AppBankeComponents/Bank.MainInfo.vue?vue&type=style&index=0&lang=scss& ***!
+  \********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Bank_MainInfo_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/sass-loader/lib/loader.js??ref--7-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./Bank.MainInfo.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/lib/loader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AppBankeComponents/Bank.MainInfo.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Bank_MainInfo_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Bank_MainInfo_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Bank_MainInfo_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Bank_MainInfo_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_lib_loader_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Bank_MainInfo_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/AppBankeComponents/Bank.MainInfo.vue?vue&type=template&id=d1d8a25a&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/AppBankeComponents/Bank.MainInfo.vue?vue&type=template&id=d1d8a25a& ***!
+  \*****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bank_MainInfo_vue_vue_type_template_id_d1d8a25a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Bank.MainInfo.vue?vue&type=template&id=d1d8a25a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AppBankeComponents/Bank.MainInfo.vue?vue&type=template&id=d1d8a25a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bank_MainInfo_vue_vue_type_template_id_d1d8a25a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bank_MainInfo_vue_vue_type_template_id_d1d8a25a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

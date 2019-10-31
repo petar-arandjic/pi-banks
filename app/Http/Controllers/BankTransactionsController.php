@@ -20,12 +20,12 @@ class BankTransactionsController extends Controller
         $income = Transaction::where('bank_id', $id)
                              ->where('type_of_transaction', 1)
                              ->sum('amount');
-        //get sum of all
+        //get sum of all expenses
         $expenses = Transaction::where('bank_id', $id)
                              ->where('type_of_transaction', 2)
                              ->sum('amount');
-
-        $starting_balance = 0;
+        //get Bank starting balance
+        $starting_balance = Bank::find($id)->starting_balance;
         //balance calculation
         $balance = $starting_balance + $income - $expenses;
         //profit calculation

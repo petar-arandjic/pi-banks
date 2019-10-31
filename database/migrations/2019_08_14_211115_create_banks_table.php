@@ -19,9 +19,11 @@ class CreateBanksTable extends Migration
             $table->string('name');
             //Bank account
             $table->string('account');
-            //
+            //allowed_overdraft
             $table->double('allowed_overdraft', 8, 4);
-            //Determinate if bank transaction will be shown of on mail container
+            //starting balance
+            $table->double('starting_balance', 8, 4);
+            //Determinate if bank transaction will be shown of on main container
             $table->boolean('show')->default(false);
             //style and colors for bank |table
             $table->bigInteger('style_id');

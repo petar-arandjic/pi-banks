@@ -11,6 +11,7 @@ $factory->define(Bank::class, function (Faker $faker) {
         'name'=> $faker->text(10),
         'account'=> $faker->numberBetween(100000000000, 900000000000),
         'allowed_overdraft' => $faker->numberBetween(1000, 10000),
+        'starting_balance' => $faker->numberBetween(1000, 10000),
         'style_id' => $faker->numberBetween(1, App\BankStyle::count()),
     ];
 });

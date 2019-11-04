@@ -24,11 +24,18 @@ Vue.component('hb-NB-Crad', require('./components/AppBankeComponents/Horizontal.
 Vue.component('bank-Transaction-window', require('./components/AppBankeComponents/Bank.TransactionWindow.vue').default);
 Vue.component('bank-main-info', require('./components/AppBankeComponents/Bank.MainInfo.vue').default);
 
+import BootstrapVue from 'bootstrap-vue' //Importing
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+Vue.use(BootstrapVue) // Telling Vue to use this in whole application
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
 
 const app = new Vue({
     el: '#app',

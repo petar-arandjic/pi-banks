@@ -8,6 +8,9 @@
             :Bank="bank"
             :Add_selected_bank="add_selected_bank"
             />
+            <div class="new_bank_button_par">
+                <button type="button" class="bank_button bg-success text-white"><a class="bank_link" href="bank/create">+</a></button>
+            </div>
         </div>
         <div id="transactions_screen">
             <bank-Transaction-window class="b-tw" v-for="(bank, index) in selected_banks" :key="index"
@@ -18,7 +21,9 @@
             />
         </div>
         <div id="main_info_window">
-            <bank-main-info/>
+            <bank-main-info
+            :Stats="bank_stats"
+            />
         </div>
     </div>
 </template>
@@ -33,6 +38,9 @@ export default {
             banks: [],
             //banks selected to be seen
             selected_banks: [],
+            //
+            bank_stats: {},
+
         }
     },
     methods:{
@@ -78,6 +86,7 @@ export default {
             //console.log(JSON.parse(response));
             //console.log(response.data);
             this.banks = response.data;
+            this.bank_stats = response.stats;
             this.get_selected_banks();
         });
     }
@@ -145,13 +154,52 @@ export default {
         top: 7%;
         box-sizing: border-box;
 
-        border: 5px solid #E53935;
 
         height: 93%;
 
         width: -webkit-calc(20% - 30px);
         width:    -moz-calc(20% - 30px);
         width:         calc(20% - 30px);
+    }
+    .new_bank_button_par{
+        position: relative;
+        width: 100%;
+        height: 8%;
+        margin-bottom: 5px;
+
+    }
+    .bank_button{
+        box-sizing: border-box;
+
+        border-radius: 2px;
+
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        font-size: 1vw;
+
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+        -webkit-transition: opacity 0.2s ease-in-out;
+        -moz-transition: opacity 0.2s ease-in-out;
+        -ms-transition: opacity 0.2s ease-in-out;
+        -o-transition: opacity 0.2s ease-in-out;
+        transition: opacity 0.2s ease-in-out;
+    }
+    .bank_button:hover{
+        filter: alpha(opacity=50);
+        opacity: 0.8;
+    }
+    .bank_link{
+        display: inline-block;
+        width: 100%;
+        color: inherit; /* blue colors for links too */
+        text-decoration: inherit; /* no underline */
+    }
+    .bank_link:hover{
+        color: inherit; /* blue colors for links too */
+        text-decoration: inherit; /* no underline */
     }
 </style>
 

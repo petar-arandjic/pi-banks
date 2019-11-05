@@ -12,7 +12,7 @@
             @click="remove_selected_bank(index)"
             ></div>
         </div>
-        <div class="container"
+        <div class="container_table"
         >
             <div class="b-head">
                 <table class="bank"
@@ -299,7 +299,7 @@ export default {
         border-radius: 50%;
         cursor: pointer;
     }
-    .container{
+    .container_table{
         position: absolute;
         top: 8%;
         height: 92%;

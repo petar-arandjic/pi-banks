@@ -8,10 +8,11 @@ use App\BankStyle;
 
 use App\Transaction;
 
-//protected $fillable = ['name', 'account', 'style_id'];
 
-class Bank extends Model
-{
+class Bank extends Model{
+
+    protected $fillable = ['name', 'account', 'style_id', 'allowed_overdraft', 'starting_balance'];
+
     //style for fron end bank cards
     public function bankStyle(){
         return $this->hasOne('BankStyle');

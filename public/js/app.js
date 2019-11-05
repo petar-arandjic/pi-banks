@@ -34787,7 +34787,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "button, input[type=submit], input[type=reset] {\n  background: none;\n  color: inherit;\n  border: none;\n  padding: 0;\n  font: inherit;\n  cursor: pointer;\n  outline: inherit;\n}\n#nav_bar_place {\n  position: absolute;\n  width: 100%;\n  height: 7%;\n  top: 0px;\n  background: lightgray;\n}\n#horizontal_bank_nav_bar {\n  position: absolute;\n  left: 10px;\n  top: calc(7% + 5px);\n  width: calc(10% - 5px);\n  height: calc(93% - 5px);\n  color: white;\n}\n#transactions_screen {\n  position: absolute;\n  top: calc(7% + 15px);\n  height: calc(93% - 30px);\n  left: calc(10% + 15px);\n  width: 70%;\n}\n#main_info_window {\n  position: absolute;\n  right: 0px;\n  top: 7%;\n  box-sizing: border-box;\n  height: 93%;\n  width: calc(20% - 30px);\n}\n.new_bank_button_par {\n  position: relative;\n  width: 100%;\n  height: 8%;\n  margin-bottom: 5px;\n}\n.bank_button {\n  box-sizing: border-box;\n  border-radius: 2px;\n  font-family: Arial, Helvetica, sans-serif;\n  font-weight: 600;\n  font-size: 1vw;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  transition: opacity 0.2s ease-in-out;\n}\n.bank_button:hover {\n  filter: alpha(opacity=50);\n  opacity: 0.8;\n}", ""]);
+exports.push([module.i, "button, input[type=submit], input[type=reset] {\n  background: none;\n  color: inherit;\n  border: none;\n  padding: 0;\n  font: inherit;\n  cursor: pointer;\n  outline: inherit;\n}\n#nav_bar_place {\n  position: absolute;\n  width: 100%;\n  height: 7%;\n  top: 0px;\n  background: lightgray;\n}\n#horizontal_bank_nav_bar {\n  position: absolute;\n  left: 10px;\n  top: calc(7% + 5px);\n  width: calc(10% - 5px);\n  height: calc(93% - 5px);\n  color: white;\n}\n#transactions_screen {\n  position: absolute;\n  top: calc(7% + 15px);\n  height: calc(93% - 30px);\n  left: calc(10% + 15px);\n  width: 70%;\n}\n#main_info_window {\n  position: absolute;\n  right: 0px;\n  top: 7%;\n  box-sizing: border-box;\n  height: 93%;\n  width: calc(20% - 30px);\n}\n.new_bank_button_par {\n  position: relative;\n  width: 100%;\n  height: 8%;\n  margin-bottom: 5px;\n}\n.bank_button {\n  box-sizing: border-box;\n  border-radius: 2px;\n  font-family: Arial, Helvetica, sans-serif;\n  font-weight: 600;\n  font-size: 1vw;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  transition: opacity 0.2s ease-in-out;\n}\n.bank_button:hover {\n  filter: alpha(opacity=50);\n  opacity: 0.8;\n}\n.bank_link {\n  display: inline-block;\n  width: 100%;\n  color: inherit;\n  /* blue colors for links too */\n  text-decoration: inherit;\n  /* no underline */\n}\n.bank_link:hover {\n  color: inherit;\n  /* blue colors for links too */\n  text-decoration: inherit;\n  /* no underline */\n}", ""]);
 
 // exports
 
@@ -67159,7 +67159,13 @@ var staticRenderFns = [
           staticClass: "bank_button bg-success text-white",
           attrs: { type: "button" }
         },
-        [_vm._v("+")]
+        [
+          _c(
+            "a",
+            { staticClass: "bank_link", attrs: { href: "bank/create" } },
+            [_vm._v("+")]
+          )
+        ]
       )
     ])
   }
@@ -67324,7 +67330,18 @@ var staticRenderFns = [
             staticClass: "btn btn-danger w-100 m-2 mr-4",
             attrs: { type: "button" }
           },
-          [_c("strong", [_vm._v("Dodaj novu transakciju")])]
+          [
+            _c("strong", [
+              _c(
+                "a",
+                {
+                  staticClass: "bank_link",
+                  attrs: { href: "transaction/create" }
+                },
+                [_vm._v("Dodaj novu transakciju")]
+              )
+            ])
+          ]
         )
       ])
     ])

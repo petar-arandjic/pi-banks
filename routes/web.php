@@ -15,3 +15,10 @@
 Route::get('/', function () {
     return view('index');
 });
+Route::get('bank/create', 'bankController@create');
+
+Route::post('bank/create', 'bankController@store');
+
+Route::get('transaction/create', 'TransactionController@create');
+
+Route::post('transaction/create', 'TransactionController@store');

@@ -67420,10 +67420,16 @@ var render = function() {
           },
           _vm._l(_vm.transactions.data, function(tran, id) {
             return _c("tr", { key: id }, [
-              _c("td", { attrs: { width: "10%" } }, [_vm._v(_vm._s(id + 1))]),
+              _c("td", { attrs: { width: "10%" } }, [
+                _c(
+                  "a",
+                  { attrs: { href: "transaction/" + tran.id + "/edit" } },
+                  [_vm._v(_vm._s(id + 1))]
+                )
+              ]),
               _vm._v(" "),
               _c("td", { attrs: { width: "25%" } }, [
-                _vm._v(_vm._s(tran.client_id))
+                _vm._v(_vm._s(tran.name))
               ]),
               _vm._v(" "),
               tran.type_of_transaction === 2
@@ -67438,7 +67444,17 @@ var render = function() {
                   ])
                 : _c("td", { attrs: { width: "20%" } }),
               _vm._v(" "),
-              _c("td", { attrs: { width: "20%" } }, [_vm._v("12.05.2019")])
+              _c("td", { attrs: { width: "20%" } }, [
+                _vm._v(
+                  _vm._s(
+                    tran.updated_at
+                      .split(" ")[0]
+                      .split("-")
+                      .reverse()
+                      .join("-")
+                  )
+                )
+              ])
             ])
           }),
           0

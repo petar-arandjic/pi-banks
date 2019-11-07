@@ -32,13 +32,13 @@
                 :style="{backgroundColor: increase_brightness(Bank.bg_color)}"
                 >
                     <tr v-for="(tran, id) in transactions.data" :key="id">
-                        <td width="10%">{{id + 1}}</td>
-                        <td width="25%">{{tran.client_id}}</td>
+                        <td width="10%"><a v-bind:href="'transaction/'+ tran.id + '/edit'">{{id + 1}}</a></td>
+                        <td width="25%">{{tran.name}}</td>
                         <td width="25%" v-if="tran.type_of_transaction === 2">{{tran.amount}}</td>
                         <td width="25%" v-else></td>
                         <td width="20%" v-if="tran.type_of_transaction === 1">{{tran.amount}}</td>
                         <td width="20%" v-else></td>
-                        <td width="20%">12.05.2019</td>
+                        <td width="20%">{{tran.updated_at.split(' ')[0].split("-").reverse().join("-")}}</td>
                     </tr>
                 </table>
             </div>

@@ -10,6 +10,8 @@ use App\Transaction;
 
 use App\Bank;
 
+use App\Partner;
+
 //for table join
 use Illuminate\Support\Facades\DB;
 
@@ -35,14 +37,17 @@ class TransactionController extends Controller
     public function create(){
         // Get all bank styles
         $banks = Bank::all();
+        $partners = Partner::all();
         return view('transaction.create', [
-            "banks" => $banks
+            "banks" => $banks,
+            "partners" => $partners
         ]);
     }
     # Store new bank
     public function store(){
-        //dd(request()->all());
+        //dd(request()->partner_id);
         $data = request()->validate([
+            'partner_id' => ['required', 'exists:partners,id'],
             'bank_id' => ['required', 'exists:banks,id'],
             'type_of_transaction' => ['required', 'numeric', 'Between: 1, 2'],
             'amount' => ['required', 'numeric', 'Between: 0, 5000000']
@@ -51,5 +56,41 @@ class TransactionController extends Controller
         Transaction::create($data);
 
         return redirect('/')->with(['response' => true]);
+    }
+
+    # Show edit page
+    public function edit($id){
+
+        $transaction = Transaction::find($id);
+        $banks = Bank::all();
+        $partners = Partner::all();
+
+        return view('transaction.edit', [
+            "transaction" => $transaction,
+            "banks" => $banks,
+            "partners" => $partners
+        ]);
+    }
+
+    # Update
+    public function update($id){
+
+        $data = request()->validate([
+            'partner_id' => ['required', 'exists:partners,id'],
+            'bank_id' => ['required', 'exists:banks,id'],
+            'type_of_transaction' => ['required', 'numeric', 'Between: 1, 2'],
+            'amount' => ['required', 'numeric', 'Between: 0, 5000000']
+        ]);
+        //dd($data);
+        $transaction = Transaction::find($id);
+
+        $transaction->partner_id = $data["partner_id"];
+        $transaction->bank_id = $data['bank_id'];
+        $transaction->type_of_transaction = $data['type_of_transaction'];
+        $transaction->amount = $data['amount'];
+
+        $transaction->save();
+
+        return redirect('/');
     }
 }

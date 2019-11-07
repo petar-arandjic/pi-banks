@@ -22,3 +22,7 @@ Route::post('bank/create', 'bankController@store');
 Route::get('transaction/create', 'TransactionController@create');
 
 Route::post('transaction/create', 'TransactionController@store');
+
+Route::get('transaction/{id}/edit', 'TransactionController@edit');
+
+Route::put('transaction/{id}/edit', 'TransactionController@update');

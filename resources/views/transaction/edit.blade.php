@@ -2,8 +2,9 @@
 
 @section('content')
     <div class="container">
-        <form action="create" enctype="multipart/form-data" method="POST">
+        <form action="edit" enctype="multipart/form-data" method="POST">
             @csrf
+            @method('PUT')
             <div class="row mt-5 border shadow-sm">
                 <div class="col-10 offset-1 rounded mt-5 mb-5">
                     <div class="col-sm">
@@ -16,18 +17,23 @@
                                 <select
                                     class="custom-select"
                                     name="bank_id"
+                                    value="asd"
                                     required
                                 >
                                     @foreach ($banks as $bank)
-                                        <option value="{{$bank->id}}">{{$bank->name}}</option>
+                                        @if ($bank->id == $transaction->bank_id)
+                                            <option value="{{$bank->id}}" selected>{{$bank->name}}</option>
+                                        @else
+                                            <option value="{{$bank->id}}">{{$bank->name}}</option>
+                                        @endif
                                     @endforeach
-                                </select>
 
-                                @error('bank_id')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                                    @error('bank_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </select>
                             </div>
                             <div class="col">
                                 <label for="partner_id" class="col-md-4 col-form-label">Partner</label>
@@ -38,8 +44,13 @@
                                 >
                                     <option value="none">Odaberi...</option>
                                     @foreach ($partners as $partner)
-                                        <option value="{{$partner->id}}">{{$partner->name}}</option>
+                                        @if ($bank->id == $transaction->bank_id)
+                                            <option value="{{$partner->id}}" selected>{{$partner->name}}</option>
+                                        @else
+                                            <option value="{{$partner->id}}">{{$partner->name}}</option>
+                                        @endif
                                     @endforeach
+
                                     @error('partner_id')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -56,8 +67,13 @@
                                     name="type_of_transaction"
                                     required
                                 >
-                                    <option value="1">Priliv</option>
-                                    <option value="2">Odliv</option>
+                                    @if ($transaction->type_of_transaction == 1)
+                                        <option value="1" selected>Priliv</option>
+                                        <option value="2">Odliv</option>
+                                    @else
+                                        <option value="1">Priliv</option>
+                                        <option value="2" selected>Odliv</option>
+                                    @endif
                                 </select>
 
                                 @error('type_of_transaction')
@@ -71,8 +87,9 @@
 
                                 <input  id="amount" type="number"
                                     class="form-control @error('amount') is-invalid @enderror"
-                                    name="amount" value="{{ old('amount') }}"
+                                    name="amount"
                                     required autocomplete="amount"
+                                    value="{{ $transaction->amount }}"
                                     autofocus>
 
                                 @error('amount')
@@ -92,4 +109,7 @@
             </div>
         </form>
     </div>
+    @if ($errors)
+        <span>{{ $errors }}</span>
+    @endif
 @endsection

@@ -32,4 +32,6 @@ Route::get('test/{id}', 'TransactionController@get_sum');
 Route::get('test/{id}', 'BankTransactionsController@index');
 Route::get('test', 'BankController@test');
 
+Route::post('/order/store', 'OrderController@store');
+
 

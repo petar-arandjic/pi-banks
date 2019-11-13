@@ -7,4 +7,7 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
     //
+    public function store(){
+        dd($request->all());
+    }
 }

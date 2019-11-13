@@ -15,6 +15,11 @@
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/test', function () {
+    return view('welcome');
+});
+
+
 Route::get('bank/create', 'bankController@create');
 
 Route::post('bank/create', 'bankController@store');

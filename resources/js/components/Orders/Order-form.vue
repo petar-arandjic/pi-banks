@@ -5,7 +5,7 @@
                 <b-row class="pb-1 pt-3 of-order_header">
                     <h5 class="mb-1"><strong>Novi nalog</strong></h5>
                 </b-row>
-                <form v-on:submit.prevent="onSubmit" method="POST" action="/order/store">
+                <form v-on:submit.prevent="onSubmit" method="POST" action="/order/store" id="o-order_form">
                     <b-row class="of-form_row">
                         <b-col md="8" offset="2">
                             <b-row class="m-0 mt-5">
@@ -97,8 +97,13 @@
 <script>
 export default {
     methods:{
-        onSubmit(){
-            console.log('form submited')
+        onSubmit(form){
+            
+            const myForm = document.getElementById('o-order_form');
+
+            const formData = new FormData(myForm);
+
+            
         }
     }
 }

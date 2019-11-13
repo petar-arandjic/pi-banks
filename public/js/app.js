@@ -2197,8 +2197,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
-    onSubmit: function onSubmit() {
-      console.log('form submited');
+    onSubmit: function onSubmit(form) {
+      var myForm = document.getElementById('o-order_form');
+      var formData = new FormData(myForm);
     }
   }
 });
@@ -67931,7 +67932,11 @@ var render = function() {
               _c(
                 "form",
                 {
-                  attrs: { method: "POST", action: "/order/store" },
+                  attrs: {
+                    method: "POST",
+                    action: "/order/store",
+                    id: "o-order_form"
+                  },
                   on: {
                     submit: function($event) {
                       $event.preventDefault()

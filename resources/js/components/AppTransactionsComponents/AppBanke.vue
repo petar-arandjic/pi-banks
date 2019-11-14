@@ -1,6 +1,5 @@
 <template>
     <div>
-        <div id="nav_bar_place"></div>
         <div id="horizontal_bank_nav_bar">
             <hb-NB-Crad v-for="(bank, index) in banks"
             :key="index"

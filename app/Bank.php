@@ -21,4 +21,7 @@ class Bank extends Model{
     public function transaction(){
         return $this->hasMany('Transaction');
     }
+    public function bankAccount(){
+        return $this->hasMany('BankAccaount');
+    }
 }

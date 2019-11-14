@@ -19,10 +19,16 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('app-banke', require('./components/AppBanke.vue').default);
-Vue.component('hb-NB-Crad', require('./components/AppBankeComponents/Horizontal.BankeNavBarCard.vue').default);
-Vue.component('bank-Transaction-window', require('./components/AppBankeComponents/Bank.TransactionWindow.vue').default);
-Vue.component('bank-main-info', require('./components/AppBankeComponents/Bank.MainInfo.vue').default);
+Vue.component('app', require('./components/App.vue').default);
+//Transactions components
+Vue.component('nav-bar', require('./components/AppTransactionsComponents/Nav_bar.vue').default);
+Vue.component('app-banke', require('./components/AppTransactionsComponents/AppBanke.vue').default);
+Vue.component('hb-NB-Crad', require('./components/AppTransactionsComponents/Horizontal.BankeNavBarCard.vue').default);
+Vue.component('bank-Transaction-window', require('./components/AppTransactionsComponents/Bank.TransactionWindow.vue').default);
+Vue.component('bank-main-info', require('./components/AppTransactionsComponents/Bank.MainInfo.vue').default);
+//Banks components
+Vue.component('bank', require('./components/AppBanksComponents/Banks.vue').default);
+Vue.component('bank-cell', require('./components/AppBanksComponents/BankCell.vue').default);
 
 import BootstrapVue from 'bootstrap-vue' //Importing
 import 'bootstrap/dist/css/bootstrap.css'

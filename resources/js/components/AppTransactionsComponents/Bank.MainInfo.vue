@@ -9,11 +9,11 @@
                 no-body
             >
                 <b-row class="pl-2 pr-2 pt-2 pb-2">
-                    <b-col class="text-left">Ukupni prihodi:</b-col>
+                    <b-col class="text-left">Ukupni prilivi:</b-col>
                     <b-col class="text-right">{{ Stats.income }}</b-col>
                 </b-row>
                 <b-row class="pl-2 pr-2 pt-2 pb-2">
-                    <b-col class="text-left">Ukupni troškovi:</b-col>
+                    <b-col class="text-left">Ukupni odlivi:</b-col>
                     <b-col class="text-right">{{ Stats.expenses }}</b-col>
                 </b-row>
                 <b-row class="pl-2 pr-2 pt-2 pb-2">
@@ -25,12 +25,12 @@
                     <b-col class="text-right">{{ Stats.allowed_overdraft }}</b-col>
                 </b-row>
                 <b-row class="pl-2 pr-2 pt-2 pb-2">
-                    <b-col class="text-left">Profit:</b-col>
-                    <b-col class="text-right">{{ Stats.profit }}</b-col>
-                </b-row>
-                <b-row class="pl-2 pr-2 pt-2 pb-2">
                     <b-col class="text-left">Stanje računa:</b-col>
                     <b-col class="text-right">{{ Stats.balance }}</b-col>
+                </b-row>
+                <b-row class="pl-2 pr-2 pt-2 pb-2">
+                    <b-col class="text-left">Raspoloživa Srestva:</b-col>
+                    <b-col class="text-right">{{ Stats.available_funds }}</b-col>
                 </b-row>
             </b-card>
         </b-row>

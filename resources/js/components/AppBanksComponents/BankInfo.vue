@@ -15,14 +15,17 @@
         </div>
         <div class="bi-a_container p-5">
             <b-row class="bi-a_table_container border m-0 h-100">
-                <table class="table table-hover text-center border-bottom">
+                <div class="bi-a_tc_child">
+                    
+                </div>
+                <table class="table table-bordered table-hover text-center border-bottom">
                     <thead class="thead-dark">
                         <tr>
-                            <th class="sticky-header p-1">racun</th>
-                            <th class="sticky-header p-1">početno stanje</th>
-                            <th class="sticky-header p-1">dozvoljeni minus</th>
-                            <th class="sticky-header p-1">stanje</th>
-                            <th class="sticky-header p-1">valuta</th>
+                            <th class="sticky-header p-1" width="20%" >račun</th>
+                            <th class="sticky-header p-1" width="20%" >početno stanje</th>
+                            <th class="sticky-header p-1" width="20%" >dozvoljeni minus</th>
+                            <th class="sticky-header p-1" width="20%" >stanje</th>
+                            <th class="sticky-header p-1" width="20%" >valuta</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,6 +51,28 @@
                             <td class="p-1">EUR</td>
                         </tr>
                     </tbody>
+                </table>
+            </b-row>
+            <b-row class="m-0">
+                <table class="table table-bordered table-hover text-center border-bottom mb-0">
+                    <thead class="border">
+                        <tr>
+                            <th class="sticky-header p-1" width="20%">
+                                <input type="number" class="border-0 w-100 h-100 text-center" placeholder="račun">
+                            </th>
+                            <th class="sticky-header p-1" width="20%">
+                                <input type="number" class="border-0 w-100 h-100 text-center" placeholder="početno stanje">
+                            </th>
+                            <th class="sticky-header p-1" width="20%">
+                                dozvoljeni minus</th>
+                            <th class="sticky-header p-1" width="20%">stanje
+
+                            </th>
+                            <th class="sticky-header p-1" width="20%">
+                                valuta
+                            </th>
+                        </tr>
+                    </thead>
                 </table>
             </b-row>
             <b-row class="m-0 mt-1">
@@ -77,7 +102,7 @@ export default {
     }
     .bi-a_container{
         position: absolute;
-        bottom: 0px;
+        bottom: 5%;
         left: 0px;
         width: 100%;
         height: 55%;

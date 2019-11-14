@@ -16,13 +16,15 @@ class BankTransactionsController extends Controller
     public function index($id){
 
         //get all transaction with same bank id
-        //$transaction = Transaction::where('bank_id', $id)->get();
+        $transaction = Transaction::where('bank_id', $id)->get();
+        /*
         $transaction =  DB::table('transactions')
         ->join('partners', 'transactions.partner_id', '=', 'partners.id')
         ->select('transactions.id', 'transactions.type_of_transaction','transactions.amount', 'transactions.bank_id', 'transactions.updated_at', 'partners.name')
         ->where('bank_id', $id)
         ->get();
-
+        */
+        //dd($transaction);
 
         //get sum of all income
         $income = Transaction::where('bank_id', $id)

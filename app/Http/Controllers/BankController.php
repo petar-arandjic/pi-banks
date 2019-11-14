@@ -40,7 +40,7 @@ class BankController extends Controller
 
         $balance = $starting_balance + $income - $expenses;
 
-        $profit = $income - $expenses;
+        $available_funds = $balance + $allowed_overdraft;
 
         $data = [
         "income" => round($income, 2),
@@ -48,7 +48,7 @@ class BankController extends Controller
         "starting_balance" => round($starting_balance, 2),
         "allowed_overdraft" => round($allowed_overdraft, 2),
         "balance" => round($balance, 2),
-        "profit" => round($profit, 2)
+        "available_funds" => round($available_funds, 2)
         ];
 
         return [

@@ -16,7 +16,7 @@
 </head>
 <body>
     <div id="app">
-        <app-banke></app-banke>
+        <app></app>
     </div>
 
 

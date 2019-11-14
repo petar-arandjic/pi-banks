@@ -36,7 +36,7 @@
             </b-button>
         </div>
         <div class="o-container">
-            <order-form></order-form>
+            <order-form v-if="selected == 'order'"></order-form>
         </div>
     </div>
 </template>

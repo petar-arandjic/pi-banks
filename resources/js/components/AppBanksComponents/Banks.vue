@@ -6,10 +6,14 @@
                 :key="bank.id"
                 :index="index"
                 :bank="bank"
+                :selected_bank="selected_bank"
             ></bank-cell>
         </div>
         <div class="bank_info border">
-
+            <bank-info
+                v-if="bank_loaded"
+                :bank="banks.data[active_bank_cell]"
+            ></bank-info>
         </div>
     </div>
 </template>
@@ -18,22 +22,27 @@
 export default {
     data(){
         return {
+            // When this obj is true bank-info component load
+            bank_loaded: false,
             banks: Object,
             active_bank_cell: 0
         }
     },
     methods:{
-        info(){
-            console.log('hello')
+        selected_bank(id){
+            //console.log(id)
+            //console.log(this.banks.data[id])
+            this.active_bank_cell = id
         }
     },
     created: function () {
-        fetch('http://localhost/Cargo_Banke/public/api/banks')
+        fetch('http://localhost/pi-banks/public/api/banks')
         .then(function(response) {
             return response.json();
         })
         .then((response) => {
             this.banks = response;
+            this.bank_loaded = true;
         });
     }
 }

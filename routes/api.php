@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BankAccountController;
 use App\Http\Controllers\BankController;
 use Illuminate\Http\Request;
 
@@ -34,4 +35,4 @@ Route::get('test', 'BankController@test');
 
 Route::post('/order/store', 'OrderController@store');
 
-
+Route::post('/bank/{id}/account/store', 'BankAccountController@store');

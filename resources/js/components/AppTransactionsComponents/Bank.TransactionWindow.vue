@@ -136,7 +136,7 @@ export default {
         }
     },
     created: function () {
-        fetch(`http://localhost/Cargo_Banke/public/api/banks/${this.Bank.id}/transactions`)
+        fetch(`http://localhost/pi-banks/public/api/banks/${this.Bank.id}/transactions`)
         .then(function(response){
             return response.json();
         })

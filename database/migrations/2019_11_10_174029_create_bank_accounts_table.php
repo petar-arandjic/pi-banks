@@ -17,7 +17,7 @@ class CreateBankAccountsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('bank_id');
             $table->string('account');
-            $table->string('currency');
+            $table->bigInteger('currency_id');
             $table->decimal('starting_balance', 8, 2);
             $table->decimal('allowed_overdraft', 8, 2);
             $table->timestamps();

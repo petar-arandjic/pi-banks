@@ -18,7 +18,7 @@ class CreateTransactionsTable extends Migration
             $table->bigInteger('partner_id');
             $table->bigInteger('type_of_transaction');
             $table->decimal('amount', 9,3);
-            $table->bigInteger('bank_id');
+            $table->bigInteger('account_id');
             $table->timestamps();
         });
     }

@@ -17,7 +17,7 @@ class CreateBanksTable extends Migration
             $table->bigIncrements('id');
             //Name of bank
             $table->string('name');
-            //Bank account
+            //allowed_overdraft
             $table->double('allowed_overdraft', 8, 4);
             //starting balance
             $table->double('starting_balance', 8, 4);

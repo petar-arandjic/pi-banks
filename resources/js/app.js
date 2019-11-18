@@ -30,6 +30,11 @@ Vue.component('bank-main-info', require('./components/AppTransactionsComponents/
 Vue.component('bank', require('./components/AppBanksComponents/Banks.vue').default);
 Vue.component('bank-cell', require('./components/AppBanksComponents/BankCell.vue').default);
 
+// Orders
+Vue.component('app-orders', require('./components/Orders/Orders.vue').default);
+Vue.component('order-cell', require('./components/Orders/Order-cell.vue').default);
+Vue.component('order-form', require('./components/Orders/Order-form.vue').default);
+
 import BootstrapVue from 'bootstrap-vue' //Importing
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -45,4 +50,5 @@ Vue.use(BootstrapVue) // Telling Vue to use this in whole application
 
 const app = new Vue({
     el: '#app',
+    el: '#test'
 });

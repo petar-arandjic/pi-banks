@@ -4,7 +4,7 @@
         @click="Select_content(1)"
         >
             <div class="hor_alling">
-                Home
+                Nalozi
             </div>
         </div>
         <div class="nav_cell"

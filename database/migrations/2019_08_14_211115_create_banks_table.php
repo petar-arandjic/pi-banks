@@ -18,8 +18,6 @@ class CreateBanksTable extends Migration
             //Name of bank
             $table->string('name');
             //Bank account
-            $table->bigInteger('bank_account_id');
-            //allowed_overdraft
             $table->double('allowed_overdraft', 8, 4);
             //starting balance
             $table->double('starting_balance', 8, 4);

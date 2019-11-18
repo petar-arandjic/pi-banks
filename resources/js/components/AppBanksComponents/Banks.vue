@@ -28,7 +28,7 @@ export default {
         }
     },
     created: function () {
-        fetch('http://localhost/Cargo_Banke/public/api/banks')
+        fetch('http://localhost/pi-banks/public/api/banks')
         .then(function(response) {
             return response.json();
         })

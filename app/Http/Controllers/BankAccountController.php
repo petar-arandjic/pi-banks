@@ -17,23 +17,33 @@ class BankAccountController extends Controller
     //
     public function store(Request $request, $id){
 
-        # Check if Bank exist
-        if(Bank::find($id)){
-            # Validate data
-            $data = Validator::make($request->all(), [
-                'account'               =>      ['required','digits:13'],
-                'starting_balance'      =>      ['required', 'numeric', 'Between: 0, 50000000'],
-                'allowed_overdraft'     =>      ['required', 'numeric', 'Between: 0, 50000000'],
-                'currency'              =>      ['required', 'exists:currencies'],
-            ]);
+        #add bank_id to request
+        $request->request->add(['bank_id' => $id]);
 
-            if ($data->fails()) {
-                $response = [
-                    'errors' => $data->errors()
+        # Validate data
+        $data = Validator::make($request->all(), [
+            'bank_id'               =>      ['required', 'exists:banks,id'],
+            'account'               =>      ['required', 'digits:13'],
+            'starting_balance'      =>      ['required', 'numeric', 'Between: 0, 50000000'],
+            'allowed_overdraft'     =>      ['required', 'numeric', 'Between: 0, 50000000'],
+            'currency_id'           =>      ['required', 'exists:currencies,id'],
+        ]);
+
+        if ($data->fails()) {
+            $response = [
+                'errors' => $data->errors()
+            ];
+            return $response;
+        }else{
+            if(BankAccount::create($request->all())){
+                return [
+                    'success' => [
+                            'message'   =>  'account successfully created',
+                            'code'      =>  '30.10'
+                        ]
                 ];
-                return $response;
             }else{
-                $data->create();
+                return 'server error 500';
             }
         }
     }

@@ -23,7 +23,7 @@ class BankController extends Controller
 
         $banks =  DB::table('banks')
         ->join('bank_styles', 'banks.style_id', '=', 'bank_styles.id')
-        ->select('banks.id', 'name','font_color', 'bg_color', 'account', 'show', 'starting_balance', 'allowed_overdraft')
+        ->select('banks.id', 'name','font_color', 'bg_color', 'show', 'starting_balance', 'allowed_overdraft')
         ->get();
 
         //get sum of all income
@@ -73,7 +73,6 @@ class BankController extends Controller
         //dd(request()->all());
         $data = request()->validate([
             'name' => 'required',
-            'account' => ['required', 'numeric', 'Between: 0, 1000000000000'],
             'allowed_overdraft' => ['required', 'numeric', 'Between: 0, 5000000'],
             'starting_balance' => ['required', 'numeric', 'Between: 0, 5000000'],
             'style_id' => ['required', 'exists:bank_styles,id'],

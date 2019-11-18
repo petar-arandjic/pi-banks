@@ -4,13 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Bank;
+use App\BankAccount;
 
 class Transaction extends Model
 {
-    protected $fillable = ['partner_id', 'bank_id', 'type_of_transaction', 'amount'];
+    protected $fillable = ['partner_id', 'account_id', 'type_of_transaction', 'amount'];
     //
-    public function bank(){
-        return $this->belongsTo('Bank');
+    public function bankAccount(){
+        return $this->belongsTo('BankAccount');
     }
 }

@@ -15,6 +15,7 @@
         </div>
         <account-table
         :bank_id="bank.id"
+        :currencies="currencies"
         ></account-table>
     </div>
 </template>
@@ -22,7 +23,8 @@
 <script>
 export default {
     props: {
-        bank: Object
+        bank: Object,
+        currencies: Array
     }
 }
 </script>

@@ -13,6 +13,7 @@
             <bank-info
                 v-if="bank_loaded"
                 :bank="banks.data[active_bank_cell]"
+                :currencies="currencies"
             ></bank-info>
         </div>
     </div>
@@ -25,7 +26,8 @@ export default {
             // When this obj is true bank-info component load
             bank_loaded: false,
             banks: Object,
-            active_bank_cell: 0
+            active_bank_cell: 0,
+            currencies: null
         }
     },
     methods:{
@@ -37,13 +39,21 @@ export default {
     },
     created: function () {
         fetch('http://localhost/pi-banks/public/api/banks')
-        .then(function(response) {
+        .then((response) => {
             return response.json();
         })
         .then((response) => {
             this.banks = response;
             this.bank_loaded = true;
-        });
+
+            return fetch('http://localhost/pi-banks/public/api/currencies')
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((response) => {
+            this.currencies = response;
+        })
     }
 }
 </script>

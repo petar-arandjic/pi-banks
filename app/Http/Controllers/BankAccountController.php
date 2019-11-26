@@ -14,7 +14,11 @@ use Illuminate\Support\Facades\Validator;
 
 class BankAccountController extends Controller
 {
-    //
+    //Show all account for given bank
+    public function index($id){
+        return Bank::find($id)->bankAccounts;
+    }
+    //Store new Account
     public function store(Request $request, $id){
 
         #add bank_id to request

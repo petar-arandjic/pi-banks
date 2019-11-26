@@ -35,7 +35,9 @@ Route::get('test', 'BankController@test');
 
 Route::post('/order/store', 'OrderController@store');
 
+# BankAccounts
 Route::post('/bank/{id}/account/store', 'BankAccountController@store');
+Route::get('/bank/{id}/accounts', 'BankAccountController@index');
 
-# Get all 'Currencies'
+# Currencies
 Route::get('/currencies', 'CurrencyController@index');

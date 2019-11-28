@@ -38,6 +38,7 @@ Route::post('/order/store', 'OrderController@store');
 # BankAccounts
 Route::post('/bank/{id}/account/store', 'BankAccountController@store');
 Route::get('/bank/{id}/accounts', 'BankAccountController@index');
+Route::delete('/account/{id}/destroy', 'BankAccountController@destroy');
 
 # Currencies
 Route::get('/currencies', 'CurrencyController@index');

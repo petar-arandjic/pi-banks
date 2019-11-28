@@ -1,20 +1,30 @@
 <template>
     <div class="bank_container">
         <div class="bank_cells border">
-            <bank-cell
-                v-for="(bank, index) in banks.data"
-                :key="bank.id"
-                :index="index"
-                :bank="bank"
-                :selected_bank="selected_bank"
-            ></bank-cell>
+            <div
+            @click="selected_window = 'bank_info'"
+            >
+                <bank-cell
+                    v-for="(bank, index) in banks.data"
+                    :key="bank.id"
+                    :index="index"
+                    :bank="bank"
+                    :selected_bank="selected_bank"
+                ></bank-cell>
+            </div>
+            <div class="row add_bank_window_buttom m-0 p-0">
+                <button type="button" class="btn btn-primary rounded-0 w-100 h-100">+</button>
+            </div>
         </div>
         <div class="bank_info border">
-            <bank-info
-                v-if="bank_loaded"
-                :bank="banks.data[active_bank_cell]"
-                :currencies="currencies"
-            ></bank-info>
+            <div v-if="selected_window === 'bank_info'">
+                <bank-info
+                    v-if="bank_loaded"
+                    :bank="banks.data[active_bank_cell]"
+                    :currencies="currencies"
+                >
+                </bank-info>
+            </div>
         </div>
     </div>
 </template>
@@ -26,6 +36,8 @@ export default {
             // When this obj is true bank-info component load
             bank_loaded: false,
             banks: Object,
+            // Choose what window will be shown ("bank card", "create bank", etc.)
+            selected_window: 'bank_info',
             active_bank_cell: 0,
             currencies: null
         }

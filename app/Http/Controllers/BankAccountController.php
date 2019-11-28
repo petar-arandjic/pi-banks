@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Validator;
 
 class BankAccountController extends Controller
 {
-    //Show all account for given bank
+    // Show all account for given bank
     public function index($id){
         return Bank::find($id)->bankAccounts;
     }
-    //Store new Account
+    // Store new Account
     public function store(Request $request, $id){
 
         #add bank_id to request
@@ -50,5 +50,10 @@ class BankAccountController extends Controller
                 return 'server error 500';
             }
         }
+    }
+    // Delete account
+    public function destroy($id){
+
+        return BankAccount::destroy($id);;
     }
 }

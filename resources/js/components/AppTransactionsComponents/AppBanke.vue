@@ -82,8 +82,6 @@ export default {
         })
         .then((response) => {
             //save data to banks
-            //console.log(JSON.parse(response));
-            //console.log(response.data);
             this.banks = response.data;
             this.bank_stats = response.stats;
             this.get_selected_banks();
